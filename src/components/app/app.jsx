@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const App = (props) => {
 
@@ -270,6 +271,11 @@ const App = (props) => {
       </main>
     </div>
   );
+};
+
+App.propTypes = {
+  rentalOffersCount: PropTypes.number.isRequired,
+  currentCity: PropTypes.string.isRequired
 };
 
 export default App;
