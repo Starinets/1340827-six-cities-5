@@ -10,8 +10,7 @@ const MockState = {
 
 ReactDOM.render(
     <App
-      rentalOffersCount={MockState.rentalOffersCount}
-      currentCity={MockState.currentCity}
+      {...MockState}
     />,
     document.getElementById(`root`)
 );
