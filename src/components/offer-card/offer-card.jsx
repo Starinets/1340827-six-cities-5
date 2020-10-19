@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Type from '../../types';
 
 const OfferCard = () => {
 
@@ -36,5 +37,7 @@ const OfferCard = () => {
     </article>
   );
 };
+
+OfferCard.protoTypes = Type.OFFER.isRequired;
 
 export default OfferCard;
