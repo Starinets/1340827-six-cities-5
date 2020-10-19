@@ -5,7 +5,7 @@ export default [
     image: `img/apartment-01.jpg`,
     price: 120,
     isFavorite: false,
-    rating: 1,
+    rate: 1,
     name: `Beautiful &amp; luxurious apartment at great location`,
     type: `Apartment`,
     bedroomsCount: 3,
@@ -13,7 +13,7 @@ export default [
     host: {
       name: `Angelina`,
       isPro: true,
-      image: `img/avatar-angelina.jpg`
+      avatar: `img/avatar-angelina.jpg`
     },
     images: [
       `img/studio-01.jpg`,
@@ -39,11 +39,12 @@ export default [
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
         rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       }
     ],
   },
@@ -53,7 +54,7 @@ export default [
     image: `img/room.jpg`,
     price: 80,
     isFavorite: true,
-    rating: 2,
+    rate: 2,
     name: `Wood and stone place`,
     type: `Private room`,
     bedroomsCount: 3,
@@ -61,7 +62,7 @@ export default [
     host: {
       name: `Max`,
       isPro: false,
-      image: `img/avatar-max.jpg`
+      avatar: `img/avatar-max.jpg`
     },
     images: [
       `img/room.jpg`,
@@ -81,20 +82,22 @@ export default [
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       },
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       }
     ],
   },
@@ -104,7 +107,7 @@ export default [
     image: `img/apartment-02.jpg`,
     price: 132,
     isFavorite: false,
-    rating: 3,
+    rate: 3,
     name: `Canal View Prinsengracht`,
     type: `Apartment`,
     bedroomsCount: 3,
@@ -112,7 +115,7 @@ export default [
     host: {
       name: `Piter`,
       isPro: false,
-      image: `img/avatar-angelina.jpg`
+      avatar: `img/avatar-angelina.jpg`
     },
     images: [
       `img/room.jpg`,
@@ -133,21 +136,22 @@ export default [
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       }
     ],
   },
   {
     id: 3,
-    isPremium: `Premium`,
+    isPremium: true,
     image: `img/apartment-03.jpg`,
     price: 180,
     isFavorite: false,
-    rating: 4,
+    rate: 4,
     name: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
     bedroomsCount: 3,
@@ -155,7 +159,7 @@ export default [
     host: {
       name: `Sam`,
       isPro: false,
-      image: `img/avatar-angelina.jpg`
+      avatar: `img/avatar-angelina.jpg`
     },
     images: [
       `img/apartment-02.jpg`,
@@ -178,20 +182,22 @@ export default [
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       },
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       }
     ],
   },
@@ -201,7 +207,7 @@ export default [
     image: `img/room.jpg`,
     price: 80,
     isFavorite: false,
-    rating: 5,
+    rate: 5,
     name: `Wood and stone place`,
     type: `Private room`,
     bedroomsCount: 3,
@@ -209,7 +215,7 @@ export default [
     host: {
       name: `John`,
       isPro: false,
-      image: `img/avatar-angelina.jpg`
+      avatar: `img/avatar-angelina.jpg`
     },
     images: [
       `img/room.jpg`,
@@ -231,29 +237,32 @@ export default [
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       },
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       },
       {
         user: {
           name: `Max`,
+          isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rating: 4,
+        rate: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: new Date(),
+        date: String(new Date()),
       }
     ],
   }
