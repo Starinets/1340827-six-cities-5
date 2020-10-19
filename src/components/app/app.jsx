@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as Type from '../../types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Login from './../login/login';
@@ -31,8 +31,9 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  rentalOffersCount: PropTypes.number.isRequired,
-  currentCity: PropTypes.string.isRequired
+  rentalOffersCount: Type.COUNT.isRequired,
+  currentCity: Type.CITY.isRequired,
+  offers: Type.OFFERS.isRequired
 };
 
 export default App;
