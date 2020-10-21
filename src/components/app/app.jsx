@@ -18,7 +18,7 @@ const App = (props) => {
         <Route exact path="/favorites">
           <Favorites />
         </Route>
-        <Route exact path="/offer/">
+        <Route exact path="/offer/:id">
           <Offer />
         </Route>
         {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
