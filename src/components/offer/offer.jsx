@@ -1,6 +1,7 @@
 import React from 'react';
+import * as Type from '../../types';
 
-const Offer = () => {
+const Offer = (props) => {
 
   return (
     <div className="page">
@@ -282,6 +283,10 @@ const Offer = () => {
       </main>
     </div>
   );
+};
+
+Offer.propTypes = {
+  offer: Type.OFFER
 };
 
 export default Offer;

@@ -19,7 +19,9 @@ const App = (props) => {
           <Favorites />
         </Route>
         <Route exact path="/offer/:id">
-          <Offer />
+          <Offer
+            offer = {props.offers[0]}
+          />
         </Route>
         {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
         <Route path="/">
