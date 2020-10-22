@@ -5,11 +5,16 @@ export default [
     image: `img/apartment-01.jpg`,
     price: 120,
     isFavorite: false,
-    rate: 1,
+    rating: 1,
     name: `Beautiful &amp; luxurious apartment at great location`,
     type: `Apartment`,
     bedroomsCount: 3,
     adultsCount: 4,
+    offerDescription: [
+      `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+      `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+    ],
+
     host: {
       name: `Angelina`,
       isPro: true,
@@ -42,9 +47,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       }
     ],
   },
@@ -54,11 +59,16 @@ export default [
     image: `img/room.jpg`,
     price: 80,
     isFavorite: true,
-    rate: 2,
+    rating: 2,
     name: `Wood and stone place`,
     type: `Private room`,
     bedroomsCount: 3,
     adultsCount: 4,
+    offerDescription: [
+      `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+      `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+    ],
+
     host: {
       name: `Max`,
       isPro: false,
@@ -85,9 +95,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       },
       {
         user: {
@@ -95,9 +105,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       }
     ],
   },
@@ -107,11 +117,16 @@ export default [
     image: `img/apartment-02.jpg`,
     price: 132,
     isFavorite: false,
-    rate: 3,
+    rating: 3,
     name: `Canal View Prinsengracht`,
     type: `Apartment`,
     bedroomsCount: 3,
     adultsCount: 4,
+    offerDescription: [
+      `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+      `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+    ],
+
     host: {
       name: `Piter`,
       isPro: false,
@@ -139,9 +154,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       }
     ],
   },
@@ -151,11 +166,15 @@ export default [
     image: `img/apartment-03.jpg`,
     price: 180,
     isFavorite: false,
-    rate: 4,
+    rating: 4,
     name: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
     bedroomsCount: 3,
     adultsCount: 4,
+    offerDescription: [
+      `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+      `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+    ],
     host: {
       name: `Sam`,
       isPro: false,
@@ -185,9 +204,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       },
       {
         user: {
@@ -195,9 +214,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       }
     ],
   },
@@ -207,11 +226,15 @@ export default [
     image: `img/room.jpg`,
     price: 80,
     isFavorite: false,
-    rate: 5,
+    rating: 5,
     name: `Wood and stone place`,
     type: `Private room`,
     bedroomsCount: 3,
     adultsCount: 4,
+    offerDescription: [
+      `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+      `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+    ],
     host: {
       name: `John`,
       isPro: false,
@@ -240,9 +263,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       },
       {
         user: {
@@ -250,9 +273,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       },
       {
         user: {
@@ -260,9 +283,9 @@ export default [
           isPro: true,
           avatar: `img/avatar-max.jpg`,
         },
-        rate: 4,
+        rating: 4,
         text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        date: String(new Date()),
+        date: `2019-04-24`,
       }
     ],
   }

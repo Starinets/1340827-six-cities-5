@@ -18,11 +18,19 @@ const CITY = oneOf([
   `Dusseldorf`
 ]);
 
+const OFFER_DESCRIPTION = arrayOf(
+    string
+);
+
 const USER = shape({
   name: string.isRequired,
   isPro: bool.isRequired,
   avatar: string.isRequired
 });
+
+const IMAGES = arrayOf(
+    string
+);
 
 const FEATURE = oneOf([
   `Wi-Fi`,
@@ -43,7 +51,7 @@ const FEATURES = arrayOf(
 
 const REVIEW = shape({
   user: USER.isRequired,
-  rate: number.isRequired,
+  rating: number.isRequired,
   text: string.isRequired,
   date: string.isRequired,
 });
@@ -58,13 +66,14 @@ const OFFER = shape({
   image: string.isRequired,
   price: number.isRequired,
   isFavorite: bool.isRequired,
-  rate: number.isRequired,
+  rating: number.isRequired,
   name: string.isRequired,
   type: string.isRequired,
   bedroomsCount: number.isRequired,
   adultsCount: number.isRequired,
+  offerDescription: OFFER_DESCRIPTION.isRequired,
   host: USER.isRequired,
-  images: arrayOf(string).isRequired,
+  images: IMAGES,
   features: FEATURES.isRequired,
   reviews: REVIEWS.isRequired,
 });
@@ -72,9 +81,13 @@ const OFFER = shape({
 const OFFERS = arrayOf(OFFER);
 
 export {
+  number as NUMBER,
+  string as STRING,
+  bool as BOOLEAN,
   COUNT,
   CITY,
   USER,
+  IMAGES,
   FEATURE,
   FEATURES,
   REVIEW,
