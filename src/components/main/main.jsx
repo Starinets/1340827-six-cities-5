@@ -77,7 +77,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{rentalOffersCount} places to stay in {currentCity}</b>
+              <b className="places__found">{ rentalOffersCount } places to stay in { currentCity }</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -86,7 +86,7 @@ const Main = (props) => {
                     <use xlinkHref="#icon-arrow-select"></use>
                   </svg>
                 </span>
-                <ul className="places__options places__options--custom places__options--opened">
+                <ul className="places__options places__options--custom">
                   <li className="places__option places__option--active" tabIndex="0">Popular</li>
                   <li className="places__option" tabIndex="0">Price: low to high</li>
                   <li className="places__option" tabIndex="0">Price: high to low</li>
@@ -95,7 +95,8 @@ const Main = (props) => {
               </form>
 
               <OfferList
-                offers = {props.offers}
+                offers = { props.offers }
+                onCardMouseEnter = { props.onCardMouseEnter }
               />
 
             </section>
@@ -110,9 +111,10 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  offers: Type.OFFERS.isRequired,
   rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
-  offers: Type.OFFERS.isRequired
+  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Main;

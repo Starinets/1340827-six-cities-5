@@ -4,7 +4,8 @@ import {
   bool,
   arrayOf,
   oneOf,
-  shape
+  shape,
+  func
 } from 'prop-types';
 
 const COUNT = number;
@@ -84,6 +85,7 @@ export {
   number as NUMBER,
   string as STRING,
   bool as BOOLEAN,
+  func as FUNCTION,
   COUNT,
   CITY,
   USER,

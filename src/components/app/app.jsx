@@ -7,36 +7,66 @@ import Favorites from './../favorites/favorites';
 import Offer from './../offer/offer';
 import Main from './../main/main';
 
-const App = (props) => {
+export default class App extends React.PureComponent {
 
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/favorites">
-          <Favorites />
-        </Route>
-        <Route exact path="/offer/:id">
-          <Offer
-            offer = { props.offers[0] }
-            offers = { props.offers }
-          />
-        </Route>
-        {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
-        <Route path="/">
-          <Main { ...props } />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  );
-};
+  constructor(props) {
+    super();
+
+    this.state = {
+      offers: props.offers,
+      rentalOffersCount: props.rentalOffersCount,
+      currentCity: props.currentCity,
+      currentOffer: undefined
+    };
+
+    this.onCardMouseEnter = this.onCardMouseEnter.bind(this);
+  }
+
+  onCardMouseEnter(currentOffer) {
+    this.setState({currentOffer});
+  }
+
+  render() {
+
+    const {
+      offers,
+      rentalOffersCount,
+      currentCity,
+      currentOffer
+    } = this.state;
+
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites />
+          </Route>
+          <Route exact path="/offer/:id">
+            <Offer
+              offer = { currentOffer }
+              offers = { offers }
+            />
+          </Route>
+          {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
+          <Route path="/">
+            <Main
+              offers = { offers }
+              rentalOffersCount = { rentalOffersCount }
+              currentCity = { currentCity }
+              onCardMouseEnter = { this.onCardMouseEnter }
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = {
   rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
   offers: Type.OFFERS.isRequired
 };
-
-export default App;

@@ -18,7 +18,12 @@ const OfferCard = (props) => {
   const width = transformRatingToWidth(rating);
 
   return (
-    <article className="cities__place-card place-card">
+    <article
+      className="cities__place-card place-card"
+      onMouseEnter = { (() => {
+        props.onCardMouseEnter(props.offer);
+      }) }
+    >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href={ `/offer/${ id }` }>
           <img className="place-card__image" src={ image } width="260" height="200" alt="Place image" />
@@ -53,7 +58,8 @@ const OfferCard = (props) => {
 };
 
 OfferCard.propTypes = {
-  offer: Type.OFFER.isRequired
+  offer: Type.OFFER.isRequired,
+  onCardMouseEnter: Type.FUNCTION.isRequired,
 };
 
 export default OfferCard;
