@@ -8,15 +8,15 @@ const OfferList = (props) => {
   const offers = props.offers.map((offer) => {
     return (
       <OfferCard
-        key = {offer.id}
-        {...offer}
+        key = { offer.id }
+        offer = { offer }
       />
     );
   });
 
   return (
     <div className="cities__places-list places__list tabs__content">
-      {offers}
+      { offers }
     </div>
   );
 };

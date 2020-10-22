@@ -1,19 +1,21 @@
 import React from 'react';
 import * as Type from '../../types';
 
+import {transformRatingToWidth} from '../../utils';
+
 const OfferCard = (props) => {
-  const RATE_MULTIPLICATOR = 20;
+
   const {
     id,
     image,
     price,
     isFavorite,
-    rate,
+    rating,
     name,
     type
-  } = props;
+  } = props.offer;
 
-  const rateToWidth = Math.trunc(rate) * RATE_MULTIPLICATOR;
+  const width = transformRatingToWidth(rating);
 
   return (
     <article className="cities__place-card place-card">
@@ -37,7 +39,7 @@ const OfferCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${rateToWidth}%`}}></span>
+            <span style={ {width} }></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -50,6 +52,8 @@ const OfferCard = (props) => {
   );
 };
 
-OfferCard.propTypes = Type.OFFER.isRequired;
+OfferCard.propTypes = {
+  offer: Type.OFFER.isRequired
+};
 
 export default OfferCard;

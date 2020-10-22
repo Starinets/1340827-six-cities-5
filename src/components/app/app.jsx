@@ -20,12 +20,13 @@ const App = (props) => {
         </Route>
         <Route exact path="/offer/:id">
           <Offer
-            offer = {props.offers[0]}
+            offer = { props.offers[0] }
+            offers = { props.offers }
           />
         </Route>
         {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
         <Route path="/">
-          <Main {...props} />
+          <Main { ...props } />
         </Route>
       </Switch>
     </BrowserRouter>
