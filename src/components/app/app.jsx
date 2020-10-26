@@ -42,7 +42,10 @@ export default class App extends React.PureComponent {
             <Login />
           </Route>
           <Route exact path="/favorites">
-            <Favorites />
+            <Favorites
+              offers = { offers }
+              onCardMouseEnter = { this.onCardMouseEnter }
+            />
           </Route>
           <Route exact path="/offer/:id">
             <Offer

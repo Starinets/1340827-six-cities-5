@@ -1,6 +1,7 @@
 export default [
   {
     id: 0,
+    city: `Paris`,
     isPremium: true,
     image: `img/apartment-01.jpg`,
     price: 120,
@@ -55,6 +56,7 @@ export default [
   },
   {
     id: 1,
+    city: `Paris`,
     isPremium: false,
     image: `img/room.jpg`,
     price: 80,
@@ -113,6 +115,7 @@ export default [
   },
   {
     id: 2,
+    city: `Paris`,
     isPremium: false,
     image: `img/apartment-02.jpg`,
     price: 132,
@@ -162,6 +165,7 @@ export default [
   },
   {
     id: 3,
+    city: `Amsterdam`,
     isPremium: true,
     image: `img/apartment-03.jpg`,
     price: 180,
@@ -222,6 +226,7 @@ export default [
   },
   {
     id: 4,
+    city: `Amsterdam`,
     isPremium: false,
     image: `img/room.jpg`,
     price: 80,
