@@ -48,6 +48,7 @@ export default class App extends React.PureComponent {
             <Offer
               offer = { currentOffer }
               offers = { offers }
+              onCardMouseEnter = { this.onCardMouseEnter }
             />
           </Route>
           {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}

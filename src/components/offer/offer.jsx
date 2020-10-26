@@ -11,7 +11,7 @@ import OfferReviewList from '../offer-review-list/offer-review-list';
 import {transformRatingToWidth} from '../../utils';
 import OfferCard from '../offer-card/offer-card';
 
-const Offer = ({offer, offers}) => {
+const Offer = ({offer, offers, onCardMouseEnter}) => {
 
   const SINGULAR_MEANING = 2;
 
@@ -112,6 +112,7 @@ const Offer = ({offer, offers}) => {
                     <OfferCard
                       key = { index }
                       offer = { neighbor }
+                      onCardMouseEnter = { onCardMouseEnter }
                     />
                   );
                 })
@@ -126,7 +127,8 @@ const Offer = ({offer, offers}) => {
 
 Offer.propTypes = {
   offer: Type.OFFER,
-  offers: Type.OFFERS
+  offers: Type.OFFERS,
+  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Offer;
