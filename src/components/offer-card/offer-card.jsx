@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Type from '../../types';
+import {NavLink} from "react-router-dom";
 
 import {transformRatingToWidth} from '../../utils';
 
@@ -25,9 +26,9 @@ const OfferCard = (props) => {
       }) }
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href={ `/offer/${ id }` }>
+        <NavLink to={ `/offer/${ id }` }>
           <img className="place-card__image" src={ image } width="260" height="200" alt="Place image" />
-        </a>
+        </NavLink>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -49,7 +50,7 @@ const OfferCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={ `/offer/${ id }` }>{ name }</a>
+          <NavLink to={ `/offer/${ id }` }>{ name }</NavLink>
         </h2>
         <p className="place-card__type">{ type }</p>
       </div>

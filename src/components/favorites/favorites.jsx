@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const Favorites = () => {
 
@@ -8,18 +9,18 @@ const Favorites = () => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <NavLink className="header__logo-link" to="/">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </a>
+              </NavLink>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
+                  <NavLink className="header__nav-link header__nav-link--profile" to="/">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
@@ -35,17 +36,17 @@ const Favorites = () => {
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
                   <div className="locations__item">
-                    <a className="locations__item-link" href="#">
+                    <NavLink className="locations__item-link" to="/">
                       <span>Amsterdam</span>
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
                 <div className="favorites__places">
                   <article className="favorites__card place-card">
                     <div className="favorites__image-wrapper place-card__image-wrapper">
-                      <a href="#">
+                      <NavLink to="/">
                         <img className="place-card__image" src="img/apartment-small-03.jpg" width="150" height="110" alt="Place image" />
-                      </a>
+                      </NavLink>
                     </div>
                     <div className="favorites__card-info place-card__info">
                       <div className="place-card__price-wrapper">
@@ -67,7 +68,7 @@ const Favorites = () => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">Nice, cozy, warm big bed apartment</a>
+                        <NavLink to="/">Nice, cozy, warm big bed apartment</NavLink>
                       </h2>
                       <p className="place-card__type">Apartment</p>
                     </div>
@@ -75,9 +76,9 @@ const Favorites = () => {
 
                   <article className="favorites__card place-card">
                     <div className="favorites__image-wrapper place-card__image-wrapper">
-                      <a href="#">
+                      <NavLink to="/">
                         <img className="place-card__image" src="img/room-small.jpg" width="150" height="110" alt="Place image" />
-                      </a>
+                      </NavLink>
                     </div>
                     <div className="favorites__card-info place-card__info">
                       <div className="place-card__price-wrapper">
@@ -99,7 +100,7 @@ const Favorites = () => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">Wood and stone place</a>
+                        <NavLink to="/">Wood and stone place</NavLink>
                       </h2>
                       <p className="place-card__type">Private room</p>
                     </div>
@@ -110,17 +111,17 @@ const Favorites = () => {
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
                   <div className="locations__item">
-                    <a className="locations__item-link" href="#">
+                    <NavLink className="locations__item-link" to="/">
                       <span>Cologne</span>
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
                 <div className="favorites__places">
                   <article className="favorites__card place-card">
                     <div className="favorites__image-wrapper place-card__image-wrapper">
-                      <a href="#">
+                      <NavLink to="/">
                         <img className="place-card__image" src="img/apartment-small-04.jpg" width="150" height="110" alt="Place image" />
-                      </a>
+                      </NavLink>
                     </div>
                     <div className="favorites__card-info place-card__info">
                       <div className="place-card__price-wrapper">
@@ -142,7 +143,7 @@ const Favorites = () => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">White castle</a>
+                        <NavLink to="/">White castle</NavLink>
                       </h2>
                       <p className="place-card__type">Apartment</p>
                     </div>
@@ -154,9 +155,9 @@ const Favorites = () => {
         </div>
       </main>
       <footer className="footer container">
-        <a className="footer__logo-link" href="main.html">
+        <NavLink className="footer__logo-link" to="/">
           <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33" />
-        </a>
+        </NavLink>
       </footer>
     </div>
   );
