@@ -75,10 +75,10 @@ const Offer = ({offer, offers, onCardMouseEnter}) => {
                   { offer.type }
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  { offer.bedroomCount < SINGULAR_MEANING ? `${ offer.bedroomCount } Bedroom` : `${ offer.bedroomCount } Bedrooms`}
+                  { offer.bedroomsCount < SINGULAR_MEANING ? `${ offer.bedroomsCount } Bedroom` : `${ offer.bedroomsCount } Bedrooms`}
                 </li>
                 <li className="property__feature property__feature--adults">
-                  { offer.adult < SINGULAR_MEANING ? `Max ${ offer.adult } adult` : `Max ${ offer.adult } adults`}
+                  { offer.adult < SINGULAR_MEANING ? `Max ${ offer.adultsCount } adult` : `Max ${ offer.adultsCount } adults`}
                 </li>
               </ul>
               <div className="property__price">
