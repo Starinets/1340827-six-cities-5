@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './components/app/app';
+import mock from './mocks/offers';
 
 const MockState = {
   rentalOffersCount: 32,
@@ -11,6 +12,7 @@ const MockState = {
 ReactDOM.render(
     <App
       {...MockState}
+      offers={mock}
     />,
     document.getElementById(`root`)
 );
