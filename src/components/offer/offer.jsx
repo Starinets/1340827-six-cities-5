@@ -10,6 +10,7 @@ import OfferReviewList from '../offer-review-list/offer-review-list';
 
 import {transformRatingToWidth} from '../../utils';
 import OfferCard from '../offer-card/offer-card';
+import ReviewForm from '../review-form/review-form';
 
 const Offer = ({offer, offers, onCardMouseEnter}) => {
 
@@ -97,6 +98,7 @@ const Offer = ({offer, offers, onCardMouseEnter}) => {
                 <ul className="reviews__list">
                   <OfferReviewList reviewList={ offer.reviews } />
                 </ul>
+                <ReviewForm />
               </section>
             </div>
           </div>
