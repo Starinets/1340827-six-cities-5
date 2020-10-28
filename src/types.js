@@ -64,6 +64,8 @@ const REVIEWS = arrayOf(
 const OFFER = shape({
   id: number.isRequired,
   city: CITY.isRequired,
+  latitude: number.isRequired,
+  longitude: number.isRequired,
   isPremium: bool.isRequired,
   image: string.isRequired,
   price: number.isRequired,
