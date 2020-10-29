@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Type from '../../types';
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -16,6 +17,7 @@ class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this.offers = props.offers;
   }
 
   componentDidMount() {
@@ -35,8 +37,10 @@ class Map extends React.PureComponent {
           attribution: MAP_ATTRIBUTION
         }).addTo(map);
 
-    const offerCords = [52.3709553943508, 4.89309666406198];
-    Leaflet.marker(offerCords, {icon}).addTo(map);
+    this.offers.forEach(({latitude, longitude}) => {
+      const offerCords = [latitude, longitude];
+      Leaflet.marker(offerCords, {icon}).addTo(map);
+    });
   }
 
   render() {
@@ -44,6 +48,10 @@ class Map extends React.PureComponent {
       <section className="cities__map map" id="map"></section>
     );
   }
+}
+
+Map.propTypes = {
+  offers: Type.OFFERS.isRequired,
 };
 
 export default Map;
