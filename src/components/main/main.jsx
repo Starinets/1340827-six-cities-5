@@ -3,6 +3,7 @@ import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
 import OfferList from './../offer-list/offer-list';
+import Map from './../map/map';
 
 const Main = (props) => {
 
@@ -102,7 +103,9 @@ const Main = (props) => {
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map />
+              </section>
             </div>
           </div>
         </div>
