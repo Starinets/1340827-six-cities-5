@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Leaflet from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
 import {
   START_MAP_POSITION,
   START_MAP_ZOOM,
@@ -9,30 +11,39 @@ import {
   Icon
 } from './../../constants';
 
-const Map = () => {
+class Map extends React.PureComponent {
 
-  const icon = Leaflet.icon(Icon);
+  constructor(props) {
+    super(props);
 
-  const map = Leaflet.map(`map`, {
-    center: START_MAP_POSITION,
-    zoom: START_MAP_ZOOM,
-    zoomControl: false,
-    marker: true
-  });
+  }
 
-  map.setView(START_MAP_POSITION, START_MAP_ZOOM);
+  componentDidMount() {
+    const icon = Leaflet.icon(Icon);
 
-  Leaflet.tileLayer(MAP_LAYER,
-      {
-        attribution: MAP_ATTRIBUTION
-      }).addTo(map);
+    const map = Leaflet.map(`map`, {
+      center: START_MAP_POSITION,
+      zoom: START_MAP_ZOOM,
+      zoomControl: false,
+      marker: true
+    });
 
-  const offerCords = [52.3709553943508, 4.89309666406198];
-  Leaflet.marker(offerCords, {icon}).addTo(map);
+    map.setView(START_MAP_POSITION, START_MAP_ZOOM);
 
-  return (
-    <div id="map"></div>
-  );
+    Leaflet.tileLayer(MAP_LAYER,
+        {
+          attribution: MAP_ATTRIBUTION
+        }).addTo(map);
+
+    const offerCords = [52.3709553943508, 4.89309666406198];
+    Leaflet.marker(offerCords, {icon}).addTo(map);
+  }
+
+  render() {
+    return (
+      <section className="cities__map map" id="map"></section>
+    );
+  }
 };
 
 export default Map;
