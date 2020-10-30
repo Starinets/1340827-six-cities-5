@@ -21,9 +21,6 @@ const OfferCard = (props) => {
   return (
     <article
       className="cities__place-card place-card"
-      onMouseEnter = { (() => {
-        props.onCardMouseEnter(props.offer);
-      }) }
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <NavLink to={ `/offer/${ id }` }>
@@ -60,7 +57,6 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   offer: Type.OFFER.isRequired,
-  onCardMouseEnter: Type.FUNCTION.isRequired,
 };
 
 export default OfferCard;

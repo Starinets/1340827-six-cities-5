@@ -98,7 +98,6 @@ const Main = (props) => {
 
               <OfferList
                 offers = { props.offers }
-                onCardMouseEnter = { props.onCardMouseEnter }
               />
 
             </section>
@@ -118,7 +117,6 @@ Main.propTypes = {
   offers: Type.OFFERS.isRequired,
   rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
-  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Main;
