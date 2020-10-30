@@ -18,19 +18,18 @@ const reduceOffersByCity = (offers) => {
   }, {});
 };
 
-const generateOfferList = (offers, onCardMouseEnter) => {
+const generateOfferList = (offers) => {
   return offers.map((offer) => {
     return (
       <OfferCard
         key = { offer.id }
         offer = { offer }
-        onCardMouseEnter = { onCardMouseEnter }
       />
     );
   });
 };
 
-const generateCityList = (cities, onCardMouseEnter) => {
+const generateCityList = (cities) => {
 
   return Object.entries(cities)
     .map(([cityName, offers], index) => {
@@ -44,7 +43,7 @@ const generateCityList = (cities, onCardMouseEnter) => {
             </div>
           </div>
           <div className="favorites__places">
-            { generateOfferList(offers, onCardMouseEnter) }
+            { generateOfferList(offers) }
           </div>
         </li>
       );
@@ -84,7 +83,7 @@ const Favorites = (props) => {
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
 
-              { generateCityList(reduceOffersByCity(props.offers), props.onCardMouseEnter) }
+              { generateCityList(reduceOffersByCity(props.offers)) }
 
             </ul>
           </section>
@@ -101,7 +100,6 @@ const Favorites = (props) => {
 
 Favorites.propTypes = {
   offers: Type.OFFERS.isRequired,
-  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Favorites;

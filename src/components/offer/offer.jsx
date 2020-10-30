@@ -12,9 +12,15 @@ import {transformRatingToWidth} from '../../utils';
 import OfferCard from '../offer-card/offer-card';
 import ReviewForm from '../review-form/review-form';
 
-const Offer = ({offer, offers, onCardMouseEnter}) => {
+const Offer = ({offerID, offers}) => {
 
   const SINGULAR_MEANING = 2;
+
+  const offer = offers[offerID];
+
+  if (offer === undefined) {
+    return (null);
+  }
 
   const width = transformRatingToWidth(offer.rating);
 
@@ -114,7 +120,6 @@ const Offer = ({offer, offers, onCardMouseEnter}) => {
                     <OfferCard
                       key = { index }
                       offer = { neighbor }
-                      onCardMouseEnter = { onCardMouseEnter }
                     />
                   );
                 })
@@ -128,9 +133,8 @@ const Offer = ({offer, offers, onCardMouseEnter}) => {
 };
 
 Offer.propTypes = {
-  offer: Type.OFFER,
+  offerID: Type.STRING,
   offers: Type.OFFERS,
-  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Offer;

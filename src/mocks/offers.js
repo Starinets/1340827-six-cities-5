@@ -2,6 +2,8 @@ export default [
   {
     id: 0,
     city: `Paris`,
+    latitude: 52.3909553943508,
+    longitude: 4.85309666406198,
     isPremium: true,
     image: `img/apartment-01.jpg`,
     price: 120,
@@ -57,6 +59,8 @@ export default [
   {
     id: 1,
     city: `Paris`,
+    latitude: 52.369553943508,
+    longitude: 4.85309666406198,
     isPremium: false,
     image: `img/room.jpg`,
     price: 80,
@@ -116,6 +120,8 @@ export default [
   {
     id: 2,
     city: `Paris`,
+    latitude: 52.3909553943508,
+    longitude: 4.929309666406198,
     isPremium: false,
     image: `img/apartment-02.jpg`,
     price: 132,
@@ -166,6 +172,8 @@ export default [
   {
     id: 3,
     city: `Amsterdam`,
+    latitude: 52.3809553943508,
+    longitude: 4.939309666406198,
     isPremium: true,
     image: `img/apartment-03.jpg`,
     price: 180,
@@ -227,6 +235,8 @@ export default [
   {
     id: 4,
     city: `Amsterdam`,
+    latitude: 52.3819553943508,
+    longitude: 4.940309666406198,
     isPremium: false,
     image: `img/room.jpg`,
     price: 80,

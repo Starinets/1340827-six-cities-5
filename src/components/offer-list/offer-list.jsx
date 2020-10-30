@@ -10,7 +10,6 @@ const OfferList = (props) => {
       <OfferCard
         key = { offer.id }
         offer = { offer }
-        onCardMouseEnter = { props.onCardMouseEnter }
       />
     );
   });
@@ -23,8 +22,7 @@ const OfferList = (props) => {
 };
 
 OfferList.propTypes = {
-  offers: Type.OFFERS.isRequired,
-  onCardMouseEnter: Type.FUNCTION.isRequired
+  offers: Type.OFFERS.isRequired
 };
 
 export default OfferList;

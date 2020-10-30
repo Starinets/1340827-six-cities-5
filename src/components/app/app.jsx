@@ -7,70 +7,44 @@ import Favorites from './../favorites/favorites';
 import Offer from './../offer/offer';
 import Main from './../main/main';
 
-export default class App extends React.PureComponent {
+const App = ({offers, rentalOffersCount, currentCity}) => {
 
-  constructor(props) {
-    super();
-
-    this.state = {
-      offers: props.offers,
-      rentalOffersCount: props.rentalOffersCount,
-      currentCity: props.currentCity,
-      currentOffer: undefined
-    };
-
-    this.onCardMouseEnter = this.onCardMouseEnter.bind(this);
-  }
-
-  onCardMouseEnter(currentOffer) {
-    this.setState({currentOffer});
-  }
-
-  render() {
-
-    const {
-      offers,
-      rentalOffersCount,
-      currentCity,
-      currentOffer
-    } = this.state;
-
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/favorites">
-            <Favorites
-              offers = { offers }
-              onCardMouseEnter = { this.onCardMouseEnter }
-            />
-          </Route>
-          <Route exact path="/offer/:id">
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/favorites">
+          <Favorites
+            offers = { offers }
+          />
+        </Route>
+        <Route exact path="/offer/:id"
+          render = { ({match}) => (
             <Offer
-              offer = { currentOffer }
+              offerID = { match.params.id }
               offers = { offers }
-              onCardMouseEnter = { this.onCardMouseEnter }
             />
-          </Route>
-          {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
-          <Route path="/">
-            <Main
-              offers = { offers }
-              rentalOffersCount = { rentalOffersCount }
-              currentCity = { currentCity }
-              onCardMouseEnter = { this.onCardMouseEnter }
-            />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+          ) }
+        />
+        {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
+        <Route path="/">
+          <Main
+            offers = { offers }
+            rentalOffersCount = { rentalOffersCount }
+            currentCity = { currentCity }
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 App.propTypes = {
   rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
   offers: Type.OFFERS.isRequired
 };
+
+export default App;

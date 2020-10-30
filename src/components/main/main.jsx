@@ -3,6 +3,7 @@ import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
 import OfferList from './../offer-list/offer-list';
+import Map from './../map/map';
 
 const Main = (props) => {
 
@@ -97,12 +98,13 @@ const Main = (props) => {
 
               <OfferList
                 offers = { props.offers }
-                onCardMouseEnter = { props.onCardMouseEnter }
               />
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map
+                offers = { props.offers }
+              />
             </div>
           </div>
         </div>
@@ -115,7 +117,6 @@ Main.propTypes = {
   offers: Type.OFFERS.isRequired,
   rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
-  onCardMouseEnter: Type.FUNCTION.isRequired
 };
 
 export default Main;
