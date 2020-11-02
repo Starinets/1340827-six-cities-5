@@ -7,10 +7,15 @@ import OfferImageList from '../offer-image-list/offer-image-list';
 import OfferFeatureList from '../offer-feature-list/offer-feature-list';
 import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
-
-import {transformRatingToWidth} from '../../utils';
 import OfferCard from '../offer-card/offer-card';
 import ReviewForm from '../review-form/review-form';
+import Map from '../map/map';
+
+import {transformRatingToWidth} from '../../utils';
+import {
+  MapPlace,
+  OfferPlace
+} from '../../constants';
 
 const Offer = ({offerID, offers}) => {
 
@@ -100,15 +105,15 @@ const Offer = ({offerID, offers}) => {
               </div>
               <OfferHost offer={ offer } />
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{ offer.reviews.length }</span></h2>
-                <ul className="reviews__list">
-                  <OfferReviewList reviewList={ offer.reviews } />
-                </ul>
+                <OfferReviewList reviewList={ offer.reviews } />
                 <ReviewForm />
               </section>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <Map
+            offers = { offers }
+            mapPlace = { MapPlace.OFFER }
+          />
         </section>
         <div className="container">
           <section className="near-places places">
@@ -120,6 +125,7 @@ const Offer = ({offerID, offers}) => {
                     <OfferCard
                       key = { index }
                       offer = { neighbor }
+                      offerPlace = { OfferPlace.NEIGHBORHOOD }
                     />
                   );
                 })

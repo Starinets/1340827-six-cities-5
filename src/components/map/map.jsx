@@ -18,6 +18,7 @@ class Map extends React.PureComponent {
     super(props);
 
     this.offers = props.offers;
+    this.mapPlace = props.mapPlace;
   }
 
   componentDidMount() {
@@ -45,13 +46,14 @@ class Map extends React.PureComponent {
 
   render() {
     return (
-      <section className="cities__map map" id="map"></section>
+      <section className={ `${ this.mapPlace }__map map` } id="map"></section>
     );
   }
 }
 
 Map.propTypes = {
   offers: Type.OFFERS.isRequired,
+  mapPlace: Type.MAP_PLACE.isRequired
 };
 
 export default Map;

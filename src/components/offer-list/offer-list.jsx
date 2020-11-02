@@ -3,6 +3,8 @@ import * as Type from '../../types';
 
 import OfferCard from './../offer-card/offer-card';
 
+import {OfferPlace} from '../../constants';
+
 const OfferList = (props) => {
 
   const offers = props.offers.map((offer) => {
@@ -10,6 +12,7 @@ const OfferList = (props) => {
       <OfferCard
         key = { offer.id }
         offer = { offer }
+        offerPlace = { OfferPlace.CITIES }
       />
     );
   });
