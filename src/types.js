@@ -84,6 +84,11 @@ const OFFER = shape({
 
 const OFFERS = arrayOf(OFFER);
 
+const MAP_PLACE = oneOf([
+  `cities`,
+  `property`
+]);
+
 export {
   number as NUMBER,
   string as STRING,
@@ -98,5 +103,6 @@ export {
   REVIEW,
   REVIEWS,
   OFFER,
-  OFFERS
+  OFFERS,
+  MAP_PLACE
 };
