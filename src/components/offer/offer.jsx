@@ -100,10 +100,7 @@ const Offer = ({offerID, offers}) => {
               </div>
               <OfferHost offer={ offer } />
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{ offer.reviews.length }</span></h2>
-                <ul className="reviews__list">
-                  <OfferReviewList reviewList={ offer.reviews } />
-                </ul>
+                <OfferReviewList reviewList={ offer.reviews } />
                 <ReviewForm />
               </section>
             </div>
