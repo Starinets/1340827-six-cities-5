@@ -7,6 +7,10 @@ import {
   shape,
   func
 } from 'prop-types';
+import {
+  MapPlace,
+  OfferPlace
+} from 'constants';
 
 const COUNT = number;
 
@@ -85,13 +89,13 @@ const OFFER = shape({
 const OFFERS = arrayOf(OFFER);
 
 const MAP_PLACE = oneOf([
-  `cities`,
-  `property`
+  MapPlace.CITIES,
+  MapPlace.OFFER,
 ]);
 
 const OFFER_PLACE = oneOf([
-  `near-places__`,
-  `cities__place-`
+  OfferPlace.CITIES,
+  OfferPlace.NEIGHBORHOOD
 ]);
 
 export {
