@@ -5,6 +5,8 @@ import {NavLink} from "react-router-dom";
 import OfferList from './../offer-list/offer-list';
 import Map from './../map/map';
 
+import {MapPlace} from '../../constants';
+
 const Main = (props) => {
 
   const {
@@ -104,6 +106,7 @@ const Main = (props) => {
             <div className="cities__right-section">
               <Map
                 offers = { props.offers }
+                mapPlace = { MapPlace.CITIES }
               />
             </div>
           </div>

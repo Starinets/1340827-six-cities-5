@@ -7,10 +7,12 @@ import OfferImageList from '../offer-image-list/offer-image-list';
 import OfferFeatureList from '../offer-feature-list/offer-feature-list';
 import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
-
-import {transformRatingToWidth} from '../../utils';
 import OfferCard from '../offer-card/offer-card';
 import ReviewForm from '../review-form/review-form';
+import Map from '../map/map';
+
+import {transformRatingToWidth} from '../../utils';
+import {MapPlace} from '../../constants';
 
 const Offer = ({offerID, offers}) => {
 
@@ -105,7 +107,10 @@ const Offer = ({offerID, offers}) => {
               </section>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <Map
+            offers = { offers }
+            mapPlace = { MapPlace.OFFER }
+          />
         </section>
         <div className="container">
           <section className="near-places places">

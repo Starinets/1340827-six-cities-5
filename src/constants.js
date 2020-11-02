@@ -4,8 +4,8 @@ const MAP_LAYER = `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}
 const MAP_ATTRIBUTION = `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`;
 
 const MapPlace = {
-  cities: `cities`,
-  offer: `property`
+  CITIES: `cities`,
+  OFFER: `property`
 };
 
 const Icon = {
