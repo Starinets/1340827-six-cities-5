@@ -12,7 +12,10 @@ import ReviewForm from '../review-form/review-form';
 import Map from '../map/map';
 
 import {transformRatingToWidth} from '../../utils';
-import {MapPlace} from '../../constants';
+import {
+  MapPlace,
+  OfferPlace
+} from '../../constants';
 
 const Offer = ({offerID, offers}) => {
 
@@ -122,6 +125,7 @@ const Offer = ({offerID, offers}) => {
                     <OfferCard
                       key = { index }
                       offer = { neighbor }
+                      offerPlace = { OfferPlace.NEIGHBORHOOD }
                     />
                   );
                 })
