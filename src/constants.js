@@ -8,6 +8,11 @@ const MapPlace = {
   OFFER: `property`
 };
 
+const OfferPlace = {
+  CITIES: `cities__place-`,
+  NEIGHBORHOOD: `near-places__`
+};
+
 const Icon = {
   iconUrl: `img/pin.svg`,
   iconSize: [30, 30]
@@ -19,5 +24,6 @@ export {
   MAP_LAYER,
   MAP_ATTRIBUTION,
   MapPlace,
+  OfferPlace,
   Icon
 };

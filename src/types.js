@@ -89,6 +89,11 @@ const MAP_PLACE = oneOf([
   `property`
 ]);
 
+const OFFER_PLACE = oneOf([
+  `near-places__`,
+  `cities__place-`
+]);
+
 export {
   number as NUMBER,
   string as STRING,
@@ -104,5 +109,6 @@ export {
   REVIEWS,
   OFFER,
   OFFERS,
-  MAP_PLACE
+  MAP_PLACE,
+  OFFER_PLACE
 };
