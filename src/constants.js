@@ -12,7 +12,7 @@ const City = {
   DUSSELDORF: `Dusseldorf`
 };
 
-const Filter = {
+const Sorting = {
   POPULAR: `Popular`,
   PRICE_LOW_TO_HIGH: `Price: low to high`,
   PRICE_HIGH_TO_LOW: `Price: high to low`,
@@ -40,7 +40,7 @@ export {
   MAP_LAYER,
   MAP_ATTRIBUTION,
   City,
-  Filter,
+  Sorting,
   MapPlace,
   OfferPlace,
   Icon
