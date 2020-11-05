@@ -12,6 +12,13 @@ const City = {
   DUSSELDORF: `Dusseldorf`
 };
 
+const Filter = {
+  POPULAR: `Popular`,
+  PRICE_LOW_TO_HIGH: `Price: low to high`,
+  PRICE_HIGH_TO_LOW: `Price: high to low`,
+  TOP_RATED_FIRST: `Top rated first`
+};
+
 const MapPlace = {
   CITIES: `cities`,
   OFFER: `property`
@@ -33,6 +40,7 @@ export {
   MAP_LAYER,
   MAP_ATTRIBUTION,
   City,
+  Filter,
   MapPlace,
   OfferPlace,
   Icon
