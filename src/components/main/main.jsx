@@ -2,6 +2,7 @@ import React from 'react';
 import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
+import CityList from '../city-list/city-list';
 import OfferList from './../offer-list/offer-list';
 import Map from './../map/map';
 
@@ -41,42 +42,12 @@ const Main = (props) => {
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <div className="tabs">
-          <section className="locations container">
-            <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item" to="/">
-                  <span>Paris</span>
-                </NavLink>
-              </li>
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item" to="/">
-                  <span>Cologne</span>
-                </NavLink>
-              </li>
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item" to="/">
-                  <span>Brussels</span>
-                </NavLink>
-              </li>
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item tabs__item--active" to="/">
-                  <span>Amsterdam</span>
-                </NavLink>
-              </li>
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item" to="/">
-                  <span>Hamburg</span>
-                </NavLink>
-              </li>
-              <li className="locations__item">
-                <NavLink className="locations__item-link tabs__item" to="/">
-                  <span>Dusseldorf</span>
-                </NavLink>
-              </li>
-            </ul>
-          </section>
-        </div>
+        <CityList
+          currentCity={ currentCity }
+          cityClickHandle={ () => {
+            return null;
+          } }
+        />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
