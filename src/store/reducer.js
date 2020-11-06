@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-    case ActionType.CHANGE_CITY:
+    case ActionType.SET_CURRENT_CITY:
       return Object.assign(
           {},
           state,
