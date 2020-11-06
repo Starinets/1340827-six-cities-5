@@ -5,7 +5,12 @@ import {NavLink} from "react-router-dom";
 import {City} from '../../constants';
 
 const CityList = (props) => {
-  const {currentCity, cityClickHandle} = props;
+
+  const {
+    currentCity,
+    onCityClick
+  } = props;
+
   return (
     <div className="tabs">
       <section className="locations container">
@@ -17,7 +22,7 @@ const CityList = (props) => {
                   <NavLink
                     to={`/`}
                     className={`locations__item-link tabs__item ${city === currentCity ? `tabs__item--active` : ``}`}
-                    onClick={() => cityClickHandle(city)}
+                    onClick={() => onCityClick(city)}
                   >
                     <span>{city}</span>
                   </NavLink>
@@ -33,7 +38,7 @@ const CityList = (props) => {
 
 CityList.propTypes = {
   currentCity: Type.CITY.isRequired,
-  cityClickHandle: Type.FUNCTION.isRequired
+  onCityClick: Type.FUNCTION.isRequired
 };
 
 export default CityList;
