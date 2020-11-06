@@ -1,6 +1,9 @@
 import React from 'react';
 import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+
+import {ActionCreator} from "../../store/action";
 
 import CityList from '../city-list/city-list';
 import OfferList from './../offer-list/offer-list';
@@ -11,9 +14,14 @@ import {MapPlace} from '../../constants';
 const Main = (props) => {
 
   const {
-    rentalOffersCount,
-    currentCity
+    offers,
+    currentCity,
+    onCityClick
   } = props;
+
+  const cityOffers = offers.filter((offer) => {
+    return offer.city === currentCity;
+  });
 
   return (
     <div className="page page--gray page--main">
@@ -44,15 +52,13 @@ const Main = (props) => {
         <h1 className="visually-hidden">Cities</h1>
         <CityList
           currentCity={ currentCity }
-          cityClickHandle={ () => {
-            return null;
-          } }
+          onCityClick={ onCityClick }
         />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{ rentalOffersCount } places to stay in { currentCity }</b>
+              <b className="places__found">{ cityOffers.length } places to stay in { currentCity }</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -70,13 +76,13 @@ const Main = (props) => {
               </form>
 
               <OfferList
-                offers = { props.offers }
+                offers = { cityOffers }
               />
 
             </section>
             <div className="cities__right-section">
               <Map
-                offers = { props.offers }
+                offers = { cityOffers }
                 mapPlace = { MapPlace.CITIES }
               />
             </div>
@@ -87,10 +93,24 @@ const Main = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  cityList: state.cityList,
+  currentCity: state.currentCity,
+  sortingList: state.filters,
+  activeSorting: state.activeFilter
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityClick(city) {
+    dispatch(ActionCreator.setCurrentCity(city));
+  }
+});
+
 Main.propTypes = {
   offers: Type.OFFERS.isRequired,
-  rentalOffersCount: Type.COUNT.isRequired,
   currentCity: Type.CITY.isRequired,
+  onCityClick: Type.FUNCTION.isRequired
 };
 
-export default Main;
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
