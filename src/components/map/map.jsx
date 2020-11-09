@@ -19,28 +19,52 @@ class Map extends React.PureComponent {
 
     this.offers = props.offers;
     this.mapPlace = props.mapPlace;
+
+    this.markers = [];
+    this.map = undefined;
+    this.icon = undefined;
   }
 
   componentDidMount() {
-    const icon = Leaflet.icon(Icon);
 
-    const map = Leaflet.map(`map`, {
+    this.icon = Leaflet.icon(Icon);
+
+    this.map = Leaflet.map(`map`, {
       center: START_MAP_POSITION,
       zoom: START_MAP_ZOOM,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(START_MAP_POSITION, START_MAP_ZOOM);
+    this.map.setView(START_MAP_POSITION, START_MAP_ZOOM);
 
     Leaflet.tileLayer(MAP_LAYER,
         {
           attribution: MAP_ATTRIBUTION
-        }).addTo(map);
+        }).addTo(this.map);
 
     this.offers.forEach(({latitude, longitude}) => {
       const offerCords = [latitude, longitude];
-      Leaflet.marker(offerCords, {icon}).addTo(map);
+      const marker = Leaflet.marker(offerCords, {icon: this.icon});
+
+      marker.addTo(this.map);
+      this.markers.push(marker);
+    });
+  }
+
+  componentWillUpdate(props) {
+    this.markers.forEach((marker) => {
+      this.map.removeLayer(marker);
+    });
+
+    this.markers = [];
+    this.offers = props.offers;
+    this.offers.forEach(({latitude, longitude}) => {
+      const offerCords = [latitude, longitude];
+      const marker = Leaflet.marker(offerCords, {icon: this.icon});
+
+      marker.addTo(this.map);
+      this.markers.push(marker);
     });
   }
 

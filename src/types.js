@@ -9,19 +9,15 @@ import {
 } from 'prop-types';
 import {
   MapPlace,
-  OfferPlace
-} from 'constants';
+  OfferPlace,
+  City
+} from './constants';
 
 const COUNT = number;
 
-const CITY = oneOf([
-  `Paris`,
-  `Cologne`,
-  `Brussels`,
-  `Amsterdam`,
-  `Hamburg`,
-  `Dusseldorf`
-]);
+const CITY = oneOf(Object.values(City));
+
+const CITIES = arrayOf(CITY);
 
 const OFFER_DESCRIPTION = arrayOf(
     string
@@ -104,6 +100,7 @@ export {
   bool as BOOLEAN,
   func as FUNCTION,
   COUNT,
+  CITIES,
   CITY,
   USER,
   IMAGES,
