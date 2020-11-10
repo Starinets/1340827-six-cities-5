@@ -29,8 +29,19 @@ const OfferPlace = {
   NEIGHBORHOOD: `near-places__`
 };
 
+const OfferListClassName = {
+  CITIES: `cities__places-list places__list tabs__content`,
+  NEIGHBORHOOD: `near-places__list places__list`,
+  FAVORITES: `favorites__places`
+};
+
 const Icon = {
   iconUrl: `img/pin.svg`,
+  iconSize: [30, 30]
+};
+
+const ActiveIcon = {
+  iconUrl: `img/pin-active.svg`,
   iconSize: [30, 30]
 };
 
@@ -43,5 +54,7 @@ export {
   Sorting,
   MapPlace,
   OfferPlace,
-  Icon
+  OfferListClassName,
+  Icon,
+  ActiveIcon
 };
