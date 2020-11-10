@@ -10,7 +10,8 @@ import {
 import {
   MapPlace,
   OfferPlace,
-  City
+  City,
+  Sorting
 } from './constants';
 
 const COUNT = number;
@@ -18,6 +19,8 @@ const COUNT = number;
 const CITY = oneOf(Object.values(City));
 
 const CITIES = arrayOf(CITY);
+
+const SORTING = oneOf(Object.values(Sorting));
 
 const OFFER_DESCRIPTION = arrayOf(
     string
@@ -102,6 +105,7 @@ export {
   COUNT,
   CITIES,
   CITY,
+  SORTING,
   USER,
   IMAGES,
   FEATURE,
