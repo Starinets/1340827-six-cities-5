@@ -3,29 +3,37 @@ import * as Type from '../../types';
 
 import OfferCard from './../offer-card/offer-card';
 
-import {OfferPlace} from '../../constants';
+import {
+  OfferPlace,
+  OfferListClassName
+} from '../../constants';
 
 const OfferList = (props) => {
+
+  const className = props.offerPlace === OfferPlace.CITIES
+    ? OfferListClassName.CITIES
+    : OfferListClassName.NEIGHBORHOOD;
 
   const offers = props.offers.map((offer) => {
     return (
       <OfferCard
         key = { offer.id }
         offer = { offer }
-        offerPlace = { OfferPlace.CITIES }
+        offerPlace = { props.offerPlace }
       />
     );
   });
 
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <div className={ className }>
       { offers }
     </div>
   );
 };
 
 OfferList.propTypes = {
-  offers: Type.OFFERS.isRequired
+  offers: Type.OFFERS.isRequired,
+  offerPlace: Type.OFFER_PLACE.isRequired
 };
 
 export default OfferList;
