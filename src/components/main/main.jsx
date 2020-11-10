@@ -11,7 +11,10 @@ import Map from '../map/map';
 import Sorting from '../sorting/sorting';
 
 import {sorting} from '../../utils';
-import {MapPlace} from '../../constants';
+import {
+  MapPlace,
+  OfferPlace
+} from '../../constants';
 
 const Main = (props) => {
 
@@ -72,6 +75,7 @@ const Main = (props) => {
 
               <OfferList
                 offers = { cityOffers }
+                offerPlace = { OfferPlace.CITIES }
               />
 
             </section>
