@@ -9,7 +9,8 @@ import {
   START_MAP_ZOOM,
   MAP_LAYER,
   MAP_ATTRIBUTION,
-  Icon
+  Icon,
+  ActiveIcon
 } from '../../constants';
 
 class Map extends React.PureComponent {
@@ -18,6 +19,7 @@ class Map extends React.PureComponent {
     super(props);
 
     this.offers = props.offers;
+    this.hoveredOffer = props.hoveredOffer;
     this.mapPlace = props.mapPlace;
 
     this.markers = [];
@@ -27,10 +29,13 @@ class Map extends React.PureComponent {
   _renderMarkers() {
 
     const icon = Leaflet.icon(Icon);
+    const activeIcon = Leaflet.icon(ActiveIcon);
 
-    this.offers.forEach(({latitude, longitude}) => {
-      const offerCords = [latitude, longitude];
-      const marker = Leaflet.marker(offerCords, {icon});
+    this.offers.forEach((offer) => {
+
+      const offerCords = [offer.latitude, offer.longitude];
+      const currentIcon = offer === this.hoveredOffer ? activeIcon : icon;
+      const marker = Leaflet.marker(offerCords, {icon: currentIcon});
 
       marker.addTo(this.map);
       this.markers.push(marker);
@@ -64,6 +69,7 @@ class Map extends React.PureComponent {
 
     this.markers = [];
     this.offers = props.offers;
+    this.hoveredOffer = props.hoveredOffer;
     this._renderMarkers();
   }
 
@@ -76,7 +82,8 @@ class Map extends React.PureComponent {
 
 Map.propTypes = {
   offers: Type.OFFERS.isRequired,
-  mapPlace: Type.MAP_PLACE.isRequired
+  mapPlace: Type.MAP_PLACE.isRequired,
+  hoveredOffer: Type.OFFER
 };
 
 export default Map;
