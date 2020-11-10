@@ -10,7 +10,8 @@ const initialState = {
   cityList: Object.values(City),
   currentCity: City.PARIS,
   sortingList: Object.values(Sorting),
-  currentSorting: Sorting.POPULAR
+  currentSorting: Sorting.POPULAR,
+  hoveredOffer: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +30,13 @@ const reducer = (state = initialState, action) => {
           {},
           state,
           {currentSorting: action.payload}
+      );
+
+    case ActionType.SET_HOVERED_OFFER:
+      return Object.assign(
+          {},
+          state,
+          {hoveredOffer: action.payload}
       );
 
     case ActionType.GET_OFFERS:
