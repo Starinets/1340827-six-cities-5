@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Type from '../../types';
+import {connect} from "react-redux";
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -32,7 +33,6 @@ class Map extends React.PureComponent {
     const activeIcon = Leaflet.icon(ActiveIcon);
 
     this.offers.forEach((offer) => {
-
       const offerCords = [offer.latitude, offer.longitude];
       const currentIcon = offer === this.hoveredOffer ? activeIcon : icon;
       const marker = Leaflet.marker(offerCords, {icon: currentIcon});
@@ -80,10 +80,14 @@ class Map extends React.PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  hoveredOffer: state.hoveredOffer
+});
+
 Map.propTypes = {
   offers: Type.OFFERS.isRequired,
   mapPlace: Type.MAP_PLACE.isRequired,
   hoveredOffer: Type.OFFER
 };
 
-export default Map;
+export default connect(mapStateToProps)(Map);
