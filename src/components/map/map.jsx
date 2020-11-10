@@ -10,7 +10,7 @@ import {
   MAP_LAYER,
   MAP_ATTRIBUTION,
   Icon
-} from './../../constants';
+} from '../../constants';
 
 class Map extends React.PureComponent {
 
@@ -22,12 +22,22 @@ class Map extends React.PureComponent {
 
     this.markers = [];
     this.map = undefined;
-    this.icon = undefined;
+  }
+
+  _renderMarkers() {
+
+    const icon = Leaflet.icon(Icon);
+
+    this.offers.forEach(({latitude, longitude}) => {
+      const offerCords = [latitude, longitude];
+      const marker = Leaflet.marker(offerCords, {icon});
+
+      marker.addTo(this.map);
+      this.markers.push(marker);
+    });
   }
 
   componentDidMount() {
-
-    this.icon = Leaflet.icon(Icon);
 
     this.map = Leaflet.map(`map`, {
       center: START_MAP_POSITION,
@@ -43,29 +53,18 @@ class Map extends React.PureComponent {
           attribution: MAP_ATTRIBUTION
         }).addTo(this.map);
 
-    this.offers.forEach(({latitude, longitude}) => {
-      const offerCords = [latitude, longitude];
-      const marker = Leaflet.marker(offerCords, {icon: this.icon});
-
-      marker.addTo(this.map);
-      this.markers.push(marker);
-    });
+    this._renderMarkers();
   }
 
   componentWillUpdate(props) {
+
     this.markers.forEach((marker) => {
       this.map.removeLayer(marker);
     });
 
     this.markers = [];
     this.offers = props.offers;
-    this.offers.forEach(({latitude, longitude}) => {
-      const offerCords = [latitude, longitude];
-      const marker = Leaflet.marker(offerCords, {icon: this.icon});
-
-      marker.addTo(this.map);
-      this.markers.push(marker);
-    });
+    this._renderMarkers();
   }
 
   render() {
