@@ -10,7 +10,7 @@ import OfferList from '../offer-list/offer-list';
 import Map from '../map/map';
 import Sorting from '../sorting/sorting';
 
-import {sorting} from '../../utils';
+import {sortOffersBy} from '../../utils';
 import {
   MapPlace,
   OfferPlace
@@ -26,7 +26,7 @@ const Main = (props) => {
     onSortingClick
   } = props;
 
-  const cityOffers = sorting[currentSorting](
+  const cityOffers = sortOffersBy[currentSorting](
       offers.filter((offer) => {
         return offer.city === currentCity;
       })

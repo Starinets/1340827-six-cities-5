@@ -16,7 +16,7 @@ const formatDateToMonthYear = (date) => {
   return date.toLocaleString(`en-US`, options);
 };
 
-const sorting = {
+const sortOffersBy = {
   [SortList.POPULAR]: (offers) => offers,
   [SortList.PRICE_HIGH_TO_LOW]: (offers) => offers.sort((a, b) => b.price - a.price),
   [SortList.PRICE_LOW_TO_HIGH]: (offers) => offers.sort((a, b) => a.price - b.price),
@@ -26,5 +26,5 @@ const sorting = {
 export {
   transformRatingToWidth,
   formatDateToMonthYear,
-  sorting
+  sortOffersBy
 };
