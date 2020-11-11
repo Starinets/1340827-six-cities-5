@@ -21,6 +21,9 @@ const OfferCard = (props) => {
   return (
     <article
       className={ `${ props.offerPlace }card place-card` }
+      onMouseOver={ () => props.onMouseOver(props.offer) }
+      onMouseOut={ () => props.onMouseOver(null) }
+      onClick={ () => props.onMouseOver(null) }
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <NavLink to={ `/offer/${ id }` }>
@@ -57,7 +60,8 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   offer: Type.OFFER.isRequired,
-  offerPlace: Type.OFFER_PLACE.isRequired
+  offerPlace: Type.OFFER_PLACE.isRequired,
+  onMouseOver: Type.FUNCTION.isRequired
 };
 
 export default OfferCard;

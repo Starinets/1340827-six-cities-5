@@ -7,7 +7,7 @@ import OfferImageList from '../offer-image-list/offer-image-list';
 import OfferFeatureList from '../offer-feature-list/offer-feature-list';
 import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
-import OfferCard from '../offer-card/offer-card';
+import OfferList from '../offer-list/offer-list';
 import ReviewForm from '../review-form/review-form';
 import Map from '../map/map';
 
@@ -118,19 +118,10 @@ const Offer = ({offerID, offers}) => {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <div className="near-places__list places__list">
-              {
-                offers.map((neighbor, index) => {
-                  return (
-                    <OfferCard
-                      key = { index }
-                      offer = { neighbor }
-                      offerPlace = { OfferPlace.NEIGHBORHOOD }
-                    />
-                  );
-                })
-              }
-            </div>
+            <OfferList
+              offers = { offers }
+              offerPlace = { OfferPlace.NEIGHBORHOOD }
+            />
           </section>
         </div>
       </main>
