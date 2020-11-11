@@ -2,15 +2,15 @@ import offers from "../mocks/offers";
 import {ActionType} from './action';
 import {
   City,
-  Sorting
+  SortList
 } from "../constants";
 
 const initialState = {
   offers,
   cityList: Object.values(City),
   currentCity: City.PARIS,
-  sortingList: Object.values(Sorting),
-  currentSorting: Sorting.POPULAR,
+  sortingList: Object.values(SortList),
+  currentSorting: SortList.POPULAR,
   hoveredOffer: null
 };
 

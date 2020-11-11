@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Type from '../../types';
 
-import {Sorting as SortList} from '../../constants';
+import {SortList} from '../../constants';
 
 export default class Sorting extends React.PureComponent {
 
