@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 
 import CityList from '../city-list/city-list';
+import withOfferList from '../hocs/with-offer-list/with-offer-list';
 import OfferList from '../offer-list/offer-list';
 import Map from '../map/map';
 import withSorting from '../hocs/with-sorting/with-sorting';
@@ -18,6 +19,7 @@ import {
 } from '../../constants';
 
 const SortingWrapped = withSorting(Sorting);
+const OfferListWrapper = withOfferList(OfferList);
 
 const Main = (props) => {
 
@@ -76,7 +78,7 @@ const Main = (props) => {
                 onSortingClick = { onSortingClick }
               />
 
-              <OfferList
+              <OfferListWrapper
                 offers = { cityOffers }
                 offerPlace = { OfferPlace.CITIES }
               />
