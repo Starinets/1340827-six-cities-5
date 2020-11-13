@@ -17,6 +17,8 @@ import {
   OfferPlace
 } from '../../constants';
 
+const SortingWrapped = withSorting(Sorting);
+
 const Main = (props) => {
 
   const {
@@ -69,7 +71,7 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{ cityOffers.length } places to stay in { currentCity }</b>
-              <Sorting
+              <SortingWrapped
                 currentSorting = { currentSorting }
                 onSortingClick = { onSortingClick }
               />

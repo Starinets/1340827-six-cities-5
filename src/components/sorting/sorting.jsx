@@ -58,3 +58,5 @@ Sorting.propTypes = {
   onListItemClick: Type.FUNCTION.isRequired,
   onListNameClick: Type.FUNCTION.isRequired,
 };
+
+export default Sorting;
