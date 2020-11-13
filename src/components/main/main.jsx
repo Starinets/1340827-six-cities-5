@@ -8,6 +8,7 @@ import {ActionCreator} from "../../store/action";
 import CityList from '../city-list/city-list';
 import OfferList from '../offer-list/offer-list';
 import Map from '../map/map';
+import withSorting from '../hocs/with-sorting/with-sorting';
 import Sorting from '../sorting/sorting';
 
 import {sortOffersBy} from '../../utils';
