@@ -9,6 +9,7 @@ import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
 import withOfferList from '../hocs/with-offer-list/with-offer-list';
 import OfferList from '../offer-list/offer-list';
+import withReviewForm from '../hocs/with-review-form/with-review-form';
 import ReviewForm from '../review-form/review-form';
 import Map from '../map/map';
 
@@ -19,6 +20,7 @@ import {
 } from '../../constants';
 
 const OfferListWrapper = withOfferList(OfferList);
+const ReviewFormWrapper = withReviewForm(ReviewForm);
 
 const Offer = ({offerID, offers}) => {
 
@@ -109,7 +111,7 @@ const Offer = ({offerID, offers}) => {
               <OfferHost offer={ offer } />
               <section className="property__reviews reviews">
                 <OfferReviewList reviewList={ offer.reviews } />
-                <ReviewForm />
+                <ReviewFormWrapper />
               </section>
             </div>
           </div>
