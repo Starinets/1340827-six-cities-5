@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../../store/action";
 
 const withOfferList = (Component) => {
+
   class WithOfferList extends React.PureComponent {
+
     render() {
       return (
         <Component
