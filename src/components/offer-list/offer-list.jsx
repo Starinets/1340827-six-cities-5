@@ -1,7 +1,5 @@
 import React from 'react';
 import * as Type from '../../types';
-import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
 
 import OfferCard from './../offer-card/offer-card';
 
@@ -10,44 +8,29 @@ import {
   OfferListClassName
 } from '../../constants';
 
-class OfferList extends React.PureComponent {
+const OfferList = (props) => {
 
-  constructor(props) {
-    super(props);
-  }
+  const className = props.offerPlace === OfferPlace.CITIES
+    ? OfferListClassName.CITIES
+    : OfferListClassName.NEIGHBORHOOD;
 
-  render() {
-    const className = this.props.offerPlace === OfferPlace.CITIES
-      ? OfferListClassName.CITIES
-      : OfferListClassName.NEIGHBORHOOD;
-
-    const offers = this.props.offers.map((offer) => {
-      return (
-        <OfferCard
-          key = { offer.id }
-          offer = { offer }
-          offerPlace = { this.props.offerPlace }
-          onMouseOver = { this.props.changeHoveredOffer }
-        />
-      );
-    });
-
+  const offers = props.offers.map((offer) => {
     return (
-      <div className={ className }>
-        { offers }
-      </div>
+      <OfferCard
+        key = { offer.id }
+        offer = { offer }
+        offerPlace = { props.offerPlace }
+        onMouseOver = { props.changeHoveredOffer }
+      />
     );
-  }
-}
+  });
 
-const mapStateToProps = () => ({
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  changeHoveredOffer(hoveredOffer) {
-    dispatch(ActionCreator.setHoveredOffer(hoveredOffer));
-  }
-});
+  return (
+    <div className={ className }>
+      { offers }
+    </div>
+  );
+};
 
 OfferList.propTypes = {
   offers: Type.OFFERS.isRequired,
@@ -55,4 +38,4 @@ OfferList.propTypes = {
   changeHoveredOffer: Type.FUNCTION.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OfferList);
+export default OfferList;

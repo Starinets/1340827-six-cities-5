@@ -1,20 +1,15 @@
 import React from 'react';
 import * as Type from '../../types';
-import {NavLink} from "react-router-dom";
-import {connect} from "react-redux";
+import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-import {ActionCreator} from "../../store/action";
+import {ActionCreator} from '../../store/action';
 
 import CityList from '../city-list/city-list';
-import OfferList from '../offer-list/offer-list';
-import Map from '../map/map';
-import Sorting from '../sorting/sorting';
+import MainContent from '../main-content/main-content';
+import MainEmpty from '../main-empty/main-empty';
 
-import {sorting} from '../../utils';
-import {
-  MapPlace,
-  OfferPlace
-} from '../../constants';
+import {sortOffersBy} from '../../utils';
 
 const Main = (props) => {
 
@@ -26,7 +21,7 @@ const Main = (props) => {
     onSortingClick
   } = props;
 
-  const cityOffers = sorting[currentSorting](
+  const cityOffers = sortOffersBy[currentSorting](
       offers.filter((offer) => {
         return offer.city === currentCity;
       })
@@ -63,30 +58,18 @@ const Main = (props) => {
           currentCity = { currentCity }
           onCityClick = { onCityClick }
         />
-        <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{ cityOffers.length } places to stay in { currentCity }</b>
-              <Sorting
-                currentSorting = { currentSorting }
-                onSortingClick = { onSortingClick }
-              />
-
-              <OfferList
-                offers = { cityOffers }
-                offerPlace = { OfferPlace.CITIES }
-              />
-
-            </section>
-            <div className="cities__right-section">
-              <Map
-                offers = { cityOffers }
-                mapPlace = { MapPlace.CITIES }
-              />
-            </div>
-          </div>
-        </div>
+        {
+          cityOffers.length ?
+            <MainContent
+              cityOffers = { cityOffers }
+              currentCity = { currentCity }
+              currentSorting = { currentSorting }
+              onSortingClick = { onSortingClick }
+            /> :
+            <MainEmpty
+              currentCity = { currentCity }
+            />
+        }
       </main>
     </div>
   );

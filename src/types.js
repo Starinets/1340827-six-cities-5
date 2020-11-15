@@ -11,7 +11,7 @@ import {
   MapPlace,
   OfferPlace,
   City,
-  Sorting
+  SortList
 } from './constants';
 
 const COUNT = number;
@@ -20,7 +20,7 @@ const CITY = oneOf(Object.values(City));
 
 const CITIES = arrayOf(CITY);
 
-const SORTING = oneOf(Object.values(Sorting));
+const SORTING = oneOf(Object.values(SortList));
 
 const OFFER_DESCRIPTION = arrayOf(
     string

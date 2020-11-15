@@ -7,7 +7,9 @@ import OfferImageList from '../offer-image-list/offer-image-list';
 import OfferFeatureList from '../offer-feature-list/offer-feature-list';
 import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
+import withOfferList from '../hocs/with-offer-list/with-offer-list';
 import OfferList from '../offer-list/offer-list';
+import withReviewForm from '../hocs/with-review-form/with-review-form';
 import ReviewForm from '../review-form/review-form';
 import Map from '../map/map';
 
@@ -16,6 +18,9 @@ import {
   MapPlace,
   OfferPlace
 } from '../../constants';
+
+const OfferListWrapper = withOfferList(OfferList);
+const ReviewFormWrapper = withReviewForm(ReviewForm);
 
 const Offer = ({offerID, offers}) => {
 
@@ -106,7 +111,7 @@ const Offer = ({offerID, offers}) => {
               <OfferHost offer={ offer } />
               <section className="property__reviews reviews">
                 <OfferReviewList reviewList={ offer.reviews } />
-                <ReviewForm />
+                <ReviewFormWrapper />
               </section>
             </div>
           </div>
@@ -118,7 +123,7 @@ const Offer = ({offerID, offers}) => {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OfferList
+            <OfferListWrapper
               offers = { offers }
               offerPlace = { OfferPlace.NEIGHBORHOOD }
             />
