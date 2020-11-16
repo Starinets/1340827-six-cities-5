@@ -3,7 +3,10 @@ import * as Type from '../../types';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {ActionCreator} from '../../store/action';
+import {
+  setCurrentCity,
+  setCurrentSort
+} from '../../store/action';
 
 import CityList from '../city-list/city-list';
 import MainContent from '../main-content/main-content';
@@ -85,10 +88,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onCityClick(city) {
-    dispatch(ActionCreator.setCurrentCity(city));
+    dispatch(setCurrentCity(city));
   },
   onSortingClick(newSorting) {
-    dispatch(ActionCreator.setCurrentSort(newSorting));
+    dispatch(setCurrentSort(newSorting));
   }
 });
 
