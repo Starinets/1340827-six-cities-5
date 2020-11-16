@@ -1,9 +1,9 @@
-import offers from "../mocks/offers";
+import offers from '../mocks/offers';
 import {ActionType} from './action';
 import {
   City,
   SortList
-} from "../constants";
+} from '../constants';
 
 const initialState = {
   offers,

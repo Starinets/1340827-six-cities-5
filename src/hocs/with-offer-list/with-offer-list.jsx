@@ -1,6 +1,6 @@
-import React from "react";
-import {connect} from "react-redux";
-import {setHoveredOffer} from "../../../store/action";
+import React from 'react';
+import {connect} from 'react-redux';
+import {setHoveredOffer} from '../../store/action';
 
 const withOfferList = (Component) => {
 
