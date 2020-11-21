@@ -1,13 +1,12 @@
 import React from 'react';
 import * as Type from '../../types';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+import {getHoveredOffer} from '../../store/selectors';
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import {
-  START_MAP_POSITION,
-  START_MAP_ZOOM,
   MAP_LAYER,
   MAP_ATTRIBUTION,
   Icon,
@@ -19,22 +18,17 @@ class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.offers = props.offers;
-    this.hoveredOffer = props.hoveredOffer;
-    this.mapPlace = props.mapPlace;
-
     this.markers = [];
     this.map = undefined;
   }
 
-  _renderMarkers() {
-
+  _renderMarkers(offers, hoveredOffer) {
     const icon = Leaflet.icon(Icon);
     const activeIcon = Leaflet.icon(ActiveIcon);
 
-    this.offers.forEach((offer) => {
-      const offerCords = [offer.latitude, offer.longitude];
-      const currentIcon = offer === this.hoveredOffer ? activeIcon : icon;
+    offers.forEach((offer) => {
+      const offerCords = [offer.location.latitude, offer.location.longitude];
+      const currentIcon = offer === hoveredOffer ? activeIcon : icon;
       const marker = Leaflet.marker(offerCords, {icon: currentIcon});
 
       marker.addTo(this.map);
@@ -42,46 +36,52 @@ class Map extends React.PureComponent {
     });
   }
 
-  componentDidMount() {
+  _setCityLocation(offers) {
+    if (offers.length > 0) {
+      const {location} = offers[0].city;
+      this.map.setView([location.latitude, location.longitude], location.zoom);
+    }
+  }
 
+  componentDidMount() {
+    const {offers} = this.props;
     this.map = Leaflet.map(`map`, {
-      center: START_MAP_POSITION,
-      zoom: START_MAP_ZOOM,
       zoomControl: false,
       marker: true
     });
 
-    this.map.setView(START_MAP_POSITION, START_MAP_ZOOM);
+    this._setCityLocation(offers);
 
     Leaflet.tileLayer(MAP_LAYER,
         {
           attribution: MAP_ATTRIBUTION
         }).addTo(this.map);
 
-    this._renderMarkers();
+    this._renderMarkers(offers, undefined);
   }
 
   componentWillUpdate(props) {
+    const {offers, hoveredOffer} = props;
+
+    this._setCityLocation(offers);
 
     this.markers.forEach((marker) => {
       this.map.removeLayer(marker);
     });
 
     this.markers = [];
-    this.offers = props.offers;
-    this.hoveredOffer = props.hoveredOffer;
-    this._renderMarkers();
+    this._renderMarkers(offers, hoveredOffer);
   }
 
   render() {
     return (
-      <section className={ `${ this.mapPlace }__map map` } id="map"></section>
+      <section className={ `${ this.props.mapPlace }__map map` } id="map"></section>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  hoveredOffer: state.hoveredOffer
+  hoveredOffer: getHoveredOffer(state)
 });
 
 Map.propTypes = {

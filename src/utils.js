@@ -16,15 +16,54 @@ const formatDateToMonthYear = (date) => {
   return date.toLocaleString(`en-US`, options);
 };
 
-const sortOffersBy = {
+const sortOfferListBy = {
   [SortList.POPULAR]: (offers) => offers,
   [SortList.PRICE_HIGH_TO_LOW]: (offers) => offers.sort((a, b) => b.price - a.price),
   [SortList.PRICE_LOW_TO_HIGH]: (offers) => offers.sort((a, b) => a.price - b.price),
   [SortList.TOP_RATED_FIRST]: (offers) => offers.sort((a, b) => b.rating - a.rating)
 };
 
+const adaptDataToClient = (offers) => {
+  return offers.map((offer) => {
+    const adaptedData = Object.assign(
+        {},
+        offer,
+        {
+          name: offer.title,
+          bedroomsCount: offer.bedrooms,
+          isFavorite: offer.is_favorite,
+          isPremium: offer.is_premium,
+          image: offer.preview_image,
+          adultsCount: offer.max_adults,
+          host: {
+            id: offer.host.id,
+            name: offer.host.name,
+            isPro: offer.host.is_pro,
+            avatar: offer.host.avatar_url
+          },
+          features: offer.goods
+        }
+    );
+    delete adaptedData.title;
+    delete adaptedData.bedrooms;
+    delete adaptedData.is_favorite;
+    delete adaptedData.is_premium;
+    delete adaptedData.preview_image;
+    delete adaptedData.max_adults;
+    delete adaptedData.goods;
+
+    return adaptedData;
+  });
+};
+
+const getCurrentCityOfferList = (offers, currentCity) => {
+  return offers.filter((offer) => offer.city.name === currentCity);
+};
+
 export {
   transformRatingToWidth,
   formatDateToMonthYear,
-  sortOffersBy
+  sortOfferListBy,
+  adaptDataToClient,
+  getCurrentCityOfferList
 };

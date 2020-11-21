@@ -1,6 +1,6 @@
 export default [
   {
-    id: 0,
+    id: 0, // +
     city: `Paris`,
     latitude: 52.3909553943508,
     longitude: 4.85309666406198,

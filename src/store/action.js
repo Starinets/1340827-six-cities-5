@@ -1,8 +1,9 @@
 const ActionType = {
   SET_CURRENT_CITY: `SET_CURRENT_CITY`,
   SET_CURRENT_SORT: `SET_CURRENT_SORT`,
-  GET_OFFERS: `GET_OFFERS`,
   SET_HOVERED_OFFER: `SET_HOVERED_OFFER`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  LOAD_OFFER_LIST: `LOAD_OFFER_LIST`
 };
 
 const setCurrentCity = (city) => ({
@@ -20,8 +21,14 @@ const setHoveredOffer = (hoveredOffer) => ({
   payload: hoveredOffer
 });
 
-const getOffers = () => ({
-  type: ActionType.GET_OFFERS
+const setAuthorizationStatus = (status) => ({
+  type: ActionType.REQUIRED_AUTHORIZATION,
+  payload: status
+});
+
+const loadOfferList = (offers) => ({
+  type: ActionType.LOAD_OFFER_LIST,
+  payload: offers
 });
 
 export {
@@ -29,5 +36,6 @@ export {
   setCurrentCity,
   setCurrentSort,
   setHoveredOffer,
-  getOffers
+  setAuthorizationStatus,
+  loadOfferList,
 };

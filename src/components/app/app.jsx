@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Type from '../../types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Login from './../login/login';
@@ -7,7 +6,9 @@ import Favorites from './../favorites/favorites';
 import Offer from './../offer/offer';
 import Main from './../main/main';
 
-const App = ({offers, rentalOffersCount, currentCity}) => {
+const App = () => {
+
+  const favoriteCards = [];
 
   return (
     <BrowserRouter>
@@ -17,34 +18,25 @@ const App = ({offers, rentalOffersCount, currentCity}) => {
         </Route>
         <Route exact path="/favorites">
           <Favorites
-            offers = { offers }
+            offers = { favoriteCards }
           />
         </Route>
         <Route exact path="/offer/:id"
-          render = { ({match}) => (
+          render={() =>
             <Offer
-              offerID = { match.params.id }
-              offers = { offers }
+              offer = {{}}
+              reviews = {[]}
+              offers = {[]}
             />
-          ) }
+          }
         />
         {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
         <Route path="/">
-          <Main
-            offers = { offers }
-            rentalOffersCount = { rentalOffersCount }
-            currentCity = { currentCity }
-          />
+          <Main />
         </Route>
       </Switch>
     </BrowserRouter>
   );
-};
-
-App.propTypes = {
-  rentalOffersCount: Type.COUNT.isRequired,
-  currentCity: Type.CITY.isRequired,
-  offers: Type.OFFERS.isRequired
 };
 
 export default App;

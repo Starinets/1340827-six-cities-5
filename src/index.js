@@ -1,29 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
 import App from './components/app/app';
 
-import mock from './mocks/offers';
-import {reducer} from './store/reducer';
+import reducer from './store/reducers/reducer';
+import {createAPI} from './services/api';
+import {setAuthorizationStatus} from './store/action';
+import {fetchOfferList} from './store/api-actions';
+import {AuthorizationStatus} from './constants';
 
-const MockState = {
-  rentalOffersCount: 32,
-  currentCity: `Amsterdam`
-};
+const api = createAPI(
+    () => store.dispatch(setAuthorizationStatus(AuthorizationStatus.NO_AUTH))
+);
 
 const store = createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    applyMiddleware(thunk.withExtraArgument(api))
 );
+
+store.dispatch(fetchOfferList());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        {...MockState}
-        offers={mock}
-      />
+      <App />
     </Provider>,
     document.getElementById(`root`)
 );

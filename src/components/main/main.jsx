@@ -7,12 +7,16 @@ import {
   setCurrentCity,
   setCurrentSort
 } from '../../store/action';
+import {
+  getCurrentCity,
+  getCities,
+  getCurrentSort,
+  getFilteredOfferList
+} from '../../store/selectors';
 
 import CityList from '../city-list/city-list';
 import MainContent from '../main-content/main-content';
 import MainEmpty from '../main-empty/main-empty';
-
-import {sortOffersBy} from '../../utils';
 
 const Main = (props) => {
 
@@ -23,12 +27,6 @@ const Main = (props) => {
     currentSorting,
     onSortingClick
   } = props;
-
-  const cityOffers = sortOffersBy[currentSorting](
-      offers.filter((offer) => {
-        return offer.city === currentCity;
-      })
-  );
 
   return (
     <div className="page page--gray page--main">
@@ -55,16 +53,16 @@ const Main = (props) => {
         </div>
       </header>
 
-      <main className="page__main page__main--index">
+      <main className={ `page__main page__main--index ${ offers.length === 0 ? `page__main--index-empty` : `` }` }>
         <h1 className="visually-hidden">Cities</h1>
         <CityList
           currentCity = { currentCity }
           onCityClick = { onCityClick }
         />
         {
-          cityOffers.length ?
+          offers.length > 0 ?
             <MainContent
-              cityOffers = { cityOffers }
+              cityOffers = { offers }
               currentCity = { currentCity }
               currentSorting = { currentSorting }
               onSortingClick = { onSortingClick }
@@ -79,11 +77,10 @@ const Main = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
-  cityList: state.cityList,
-  currentCity: state.currentCity,
-  sortingList: state.sortingList,
-  currentSorting: state.currentSorting
+  offers: getFilteredOfferList(state),
+  cityList: getCities(state),
+  currentCity: getCurrentCity(state),
+  currentSorting: getCurrentSort(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
