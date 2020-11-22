@@ -3,7 +3,9 @@ const ActionType = {
   SET_CURRENT_SORT: `SET_CURRENT_SORT`,
   SET_HOVERED_OFFER: `SET_HOVERED_OFFER`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
-  LOAD_OFFER_LIST: `LOAD_OFFER_LIST`
+  LOAD_OFFER_LIST: `LOAD_OFFER_LIST`,
+  SET_AUTH_INFO: `SET_AUTH_INFO`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 const setCurrentCity = (city) => ({
@@ -29,6 +31,16 @@ const setAuthorizationStatus = (status) => ({
 const loadOfferList = (offers) => ({
   type: ActionType.LOAD_OFFER_LIST,
   payload: offers
+});
+
+export const setAuthInfo = (authInfo) => ({
+  type: ActionType.SET_AUTH_INFO,
+  payload: authInfo
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url
 });
 
 export {
