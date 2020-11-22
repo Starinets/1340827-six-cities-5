@@ -4,7 +4,7 @@ import {getCurrentCityOfferList, sortOfferListBy, adaptDataToClient} from '../ut
 
 const getOfferList = (state) => state[NameSpace.API_DATA].offers;
 
-const getAuthorizationStatus = (state) => state[NameSpace.API_DATA].authorizationStatus;
+const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
 
 const getCurrentCity = (state) => state[NameSpace.APP_STATE].currentCity;
 
@@ -26,6 +26,8 @@ const getFilteredOfferList = createSelector(
     (offers, currentCity, currentSort) => sortOfferListBy[currentSort](getCurrentCityOfferList(offers, currentCity).slice())
 );
 
+const getAuthInfo = (state) => state[NameSpace.USER].authInfo;
+
 export {
   getOfferList,
   getAuthorizationStatus,
@@ -34,5 +36,6 @@ export {
   getCurrentSort,
   getHoveredOffer,
   adaptedOfferList,
-  getFilteredOfferList
+  getFilteredOfferList,
+  getAuthInfo
 };
