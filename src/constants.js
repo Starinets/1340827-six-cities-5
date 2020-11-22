@@ -45,6 +45,11 @@ const ActiveIcon = {
   iconSize: [30, 30]
 };
 
+const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 export {
   START_MAP_POSITION,
   START_MAP_ZOOM,
@@ -56,5 +61,6 @@ export {
   OfferPlace,
   OfferListClassName,
   Icon,
-  ActiveIcon
+  ActiveIcon,
+  AuthorizationStatus,
 };

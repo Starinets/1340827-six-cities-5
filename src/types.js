@@ -22,11 +22,10 @@ const CITIES = arrayOf(CITY);
 
 const SORTING = oneOf(Object.values(SortList));
 
-const OFFER_DESCRIPTION = arrayOf(
-    string
-);
+const OFFER_DESCRIPTION = string;
 
 const USER = shape({
+  id: number.isRequired,
   name: string.isRequired,
   isPro: bool.isRequired,
   avatar: string.isRequired
@@ -36,18 +35,7 @@ const IMAGES = arrayOf(
     string
 );
 
-const FEATURE = oneOf([
-  `Wi-Fi`,
-  `Washing machine`,
-  `Towels`,
-  `Heating`,
-  `Coffee machine`,
-  `Baby seat`,
-  `Kitchen`,
-  `Dishwasher`,
-  `Cable TV`,
-  `Fridge`
-]);
+const FEATURE = string;
 
 const FEATURES = arrayOf(
     FEATURE
@@ -66,9 +54,13 @@ const REVIEWS = arrayOf(
 
 const OFFER = shape({
   id: number.isRequired,
-  city: CITY.isRequired,
-  latitude: number.isRequired,
-  longitude: number.isRequired,
+  city: shape({
+    name: string.isRequired,
+    location: shape({
+      latitude: number.isRequired,
+      longitude: number.isRequired
+    })
+  }).isRequired,
   isPremium: bool.isRequired,
   image: string.isRequired,
   price: number.isRequired,
@@ -78,11 +70,10 @@ const OFFER = shape({
   type: string.isRequired,
   bedroomsCount: number.isRequired,
   adultsCount: number.isRequired,
-  offerDescription: OFFER_DESCRIPTION.isRequired,
+  description: OFFER_DESCRIPTION.isRequired,
   host: USER.isRequired,
   images: IMAGES,
   features: FEATURES.isRequired,
-  reviews: REVIEWS.isRequired,
 });
 
 const OFFERS = arrayOf(OFFER);

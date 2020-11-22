@@ -18,15 +18,9 @@ const OfferHost = ({offer}) => {
         </span>
       </div>
       <div className="property__description">
-        {
-          offer.offerDescription.map((description, index) => {
-            return (
-              <p className="property__text" key={index}>
-                { description }
-              </p>
-            );
-          })
-        }
+        <p className="property__text">
+          { offer.description }
+        </p>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Type from '../../types';
 
-import withOfferList from '../hocs/with-offer-list/with-offer-list';
-import withSorting from '../hocs/with-sorting/with-sorting';
+import withOfferList from '../../hocs/with-offer-list/with-offer-list';
+import withSorting from '../../hocs/with-sorting/with-sorting';
 
 import Map from '../map/map';
 import OfferList from '../offer-list/offer-list';

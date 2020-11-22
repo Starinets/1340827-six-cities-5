@@ -1,29 +1,41 @@
 const ActionType = {
   SET_CURRENT_CITY: `SET_CURRENT_CITY`,
   SET_CURRENT_SORT: `SET_CURRENT_SORT`,
-  GET_OFFERS: `GET_OFFERS`,
   SET_HOVERED_OFFER: `SET_HOVERED_OFFER`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  LOAD_OFFER_LIST: `LOAD_OFFER_LIST`
 };
 
-const ActionCreator = {
-  setCurrentCity: (city) => ({
-    type: ActionType.SET_CURRENT_CITY,
-    payload: city
-  }),
-  setCurrentSort: (sorting) => ({
-    type: ActionType.SET_CURRENT_SORT,
-    payload: sorting
-  }),
-  setHoveredOffer: (hoveredOffer) => ({
-    type: ActionType.SET_HOVERED_OFFER,
-    payload: hoveredOffer
-  }),
-  getOffers: () => ({
-    type: ActionType.GET_OFFERS
-  })
-};
+const setCurrentCity = (city) => ({
+  type: ActionType.SET_CURRENT_CITY,
+  payload: city
+});
+
+const setCurrentSort = (sorting) => ({
+  type: ActionType.SET_CURRENT_SORT,
+  payload: sorting
+});
+
+const setHoveredOffer = (hoveredOffer) => ({
+  type: ActionType.SET_HOVERED_OFFER,
+  payload: hoveredOffer
+});
+
+const setAuthorizationStatus = (status) => ({
+  type: ActionType.REQUIRED_AUTHORIZATION,
+  payload: status
+});
+
+const loadOfferList = (offers) => ({
+  type: ActionType.LOAD_OFFER_LIST,
+  payload: offers
+});
 
 export {
   ActionType,
-  ActionCreator
+  setCurrentCity,
+  setCurrentSort,
+  setHoveredOffer,
+  setAuthorizationStatus,
+  loadOfferList,
 };

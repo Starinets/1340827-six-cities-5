@@ -1,6 +1,6 @@
-import React from "react";
-import {connect} from "react-redux";
-import {ActionCreator} from "../../../store/action";
+import React from 'react';
+import {connect} from 'react-redux';
+import {setHoveredOffer} from '../../store/action';
 
 const withOfferList = (Component) => {
 
@@ -17,7 +17,7 @@ const withOfferList = (Component) => {
 
   const mapDispatchToProps = (dispatch) => ({
     changeHoveredOffer(hoveredOffer) {
-      dispatch(ActionCreator.setHoveredOffer(hoveredOffer));
+      dispatch(setHoveredOffer(hoveredOffer));
     }
   });
 
