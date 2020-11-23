@@ -5,7 +5,8 @@ import {
   arrayOf,
   oneOf,
   shape,
-  func
+  func,
+  oneOfType
 } from 'prop-types';
 import {
   MapPlace,
@@ -89,8 +90,8 @@ const OFFER_PLACE = oneOf([
 ]);
 
 const AUTH_INFO = shape({
-  email: oneOf([
-    null,
+  email: oneOfType([
+    oneOf([null]),
     string
   ])
 });
