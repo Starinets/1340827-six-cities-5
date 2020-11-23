@@ -3,6 +3,7 @@ import {
   string,
   bool,
   arrayOf,
+  oneOfType,
   oneOf,
   shape,
   func
@@ -88,6 +89,11 @@ const OFFER_PLACE = oneOf([
   OfferPlace.NEIGHBORHOOD
 ]);
 
+const AUTH_INFO = oneOfType([
+  oneOf([null]).isRequired,
+  shape({email: string.isRequired}).isRequired
+]);
+
 export {
   number as NUMBER,
   string as STRING,
@@ -106,5 +112,6 @@ export {
   OFFER,
   OFFERS,
   MAP_PLACE,
-  OFFER_PLACE
+  OFFER_PLACE,
+  AUTH_INFO
 };
