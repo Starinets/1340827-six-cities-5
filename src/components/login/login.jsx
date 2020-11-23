@@ -1,28 +1,52 @@
 import React from 'react';
+import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
 import Header from '../header/header';
 
 import {AppRoute} from '../../constants';
 
-const Login = () => {
+const Login = (props) => {
+
+  const {onFormSubmit, onEmailChange, onPasswordChange, email, password} = props;
 
   return (
     <div className="page page--gray page--login">
-      <Header />
+      <Header/>
 
       <main className="page__main page__main--login">
         <div className="page__login-container container">
           <section className="login">
             <h1 className="login__title">Sign in</h1>
-            <form className="login__form form" action="#" method="post">
+            <form
+              className="login__form form"
+              action=""
+              method="post"
+              onSubmit={ onFormSubmit }
+            >
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
-                <input className="login__input form__input" type="email" name="email" placeholder="Email" required="" />
+                <input
+                  onChange={ onEmailChange }
+                  value={ email }
+                  className="login__input form__input"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
               </div>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">Password</label>
-                <input className="login__input form__input" type="password" name="password" placeholder="Password" required="" />
+                <input
+                  onChange={ onPasswordChange }
+                  value={ password }
+                  className="login__input form__input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
               </div>
               <button className="login__submit form__submit button" type="submit">Sign in</button>
             </form>
@@ -41,6 +65,14 @@ const Login = () => {
       </main>
     </div>
   );
+};
+
+Login.propTypes = {
+  onFormSubmit: Type.FUNCTION.isRequired,
+  onEmailChange: Type.FUNCTION.isRequired,
+  onPasswordChange: Type.FUNCTION.isRequired,
+  email: Type.STRING.isRequired,
+  password: Type.STRING.isRequired,
 };
 
 export default Login;

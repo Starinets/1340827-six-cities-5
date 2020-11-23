@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import browserHistory from '../../browser-history';
 
+import withLogin from '../../hocs/with-login/with-login';
 import Login from './../login/login';
 import Favorites from './../favorites/favorites';
 import Offer from './../offer/offer';
@@ -9,6 +10,8 @@ import Main from './../main/main';
 
 import PrivateRoute from "../private-route/private-route";
 import {AppRoute} from '../../constants';
+
+const WrappedLogin = withLogin(Login);
 
 const App = () => {
 
@@ -19,14 +22,14 @@ const App = () => {
       <Switch>
 
         <Route exact path={ AppRoute.LOGIN }>
-          <Login />
+          <WrappedLogin/>
         </Route>
 
-        <PrivateRoute exact path={ AppRoute.FAVORITES }>
-          <Favorites
-            offers = { favoriteCards }
-          />
-        </PrivateRoute>
+        <PrivateRoute
+          exact
+          path={ AppRoute.FAVORITES }
+          render={ () => <Favorites offers={ favoriteCards } /> }
+        />
 
         <Route exact path={ `${AppRoute.OFFER}/:id` }
           render={() =>
