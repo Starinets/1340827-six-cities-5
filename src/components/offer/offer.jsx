@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Type from '../../types';
-import {NavLink} from "react-router-dom";
 
+import Header from '../header/header';
 import PremiumLabel from '../premium-label/premium-label';
 import OfferImageList from '../offer-image-list/offer-image-list';
 import OfferFeatureList from '../offer-feature-list/offer-feature-list';
@@ -15,7 +15,6 @@ import Map from '../map/map';
 
 import {transformRatingToWidth} from '../../utils';
 import {
-  AppRoute,
   MapPlace,
   OfferPlace
 } from '../../constants';
@@ -37,34 +36,7 @@ const Offer = ({offerID, offers}) => {
 
   return (
     <div className="page">
-      <header className="header">
-        <div className="container">
-          <div className="header__wrapper">
-            <div className="header__left">
-              <NavLink
-                className="header__logo-link"
-                to={ AppRoute.ROOT }
-              >
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </NavLink>
-            </div>
-            <nav className="header__nav">
-              <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <NavLink
-                    className="header__nav-link header__nav-link--profile"
-                    to={ AppRoute.ROOT }
-                  >
-                    <div className="header__avatar-wrapper user__avatar-wrapper">
-                    </div>
-                    <span className="header__login">Sign in</span>
-                  </NavLink>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="page__main page__main--property">
         <section className="property">
