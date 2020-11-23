@@ -3,7 +3,6 @@ import {
   string,
   bool,
   arrayOf,
-  oneOfType,
   oneOf,
   shape,
   func
@@ -89,10 +88,12 @@ const OFFER_PLACE = oneOf([
   OfferPlace.NEIGHBORHOOD
 ]);
 
-const AUTH_INFO = oneOfType([
-  oneOf([null]).isRequired,
-  shape({email: string.isRequired}).isRequired
-]);
+const AUTH_INFO = shape({
+  email: oneOf([
+    null,
+    string
+  ])
+});
 
 export {
   number as NUMBER,

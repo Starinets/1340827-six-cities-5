@@ -28,7 +28,13 @@ const Header = ({authInfo}) => {
                 >
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span className="header__user-name user__name">{authInfo ? authInfo.email : `Sign in`}</span>
+                  <span className="header__user-name user__name">
+                    {
+                      authInfo.email !== null
+                        ? authInfo.email
+                        : `Sign in`
+                    }
+                  </span>
                 </NavLink>
               </li>
             </ul>

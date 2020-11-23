@@ -3,7 +3,7 @@ import {AuthorizationStatus} from '../../../constants';
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
-  authInfo: null
+  authInfo: {email: null}
 };
 
 const user = (state = initialState, action) => {
