@@ -25,32 +25,29 @@ const sortOfferListBy = {
 
 const adaptDataToClient = (offers) => {
   return offers.map((offer) => {
-    const adaptedData = Object.assign(
-        {},
-        offer,
-        {
-          name: offer.title,
-          bedroomsCount: offer.bedrooms,
-          isFavorite: offer.is_favorite,
-          isPremium: offer.is_premium,
-          image: offer.preview_image,
-          adultsCount: offer.max_adults,
-          host: {
-            id: offer.host.id,
-            name: offer.host.name,
-            isPro: offer.host.is_pro,
-            avatar: offer.host.avatar_url
-          },
-          features: offer.goods
-        }
-    );
-    delete adaptedData.title;
-    delete adaptedData.bedrooms;
-    delete adaptedData.is_favorite;
-    delete adaptedData.is_premium;
-    delete adaptedData.preview_image;
-    delete adaptedData.max_adults;
-    delete adaptedData.goods;
+    const adaptedData = {
+      id: offer.id,
+      city: offer.city,
+      location: offer.location,
+      isPremium: offer.is_premium,
+      image: offer.preview_image,
+      price: offer.price,
+      isFavorite: offer.is_favorite,
+      rating: offer.rating,
+      name: offer.title,
+      type: offer.type,
+      bedroomsCount: offer.bedrooms,
+      adultsCount: offer.max_adults,
+      description: offer.description,
+      host: {
+        id: offer.host.id,
+        name: offer.host.name,
+        isPro: offer.host.is_pro,
+        avatar: offer.host.avatar_url
+      },
+      images: offer.images,
+      features: offer.goods,
+    };
 
     return adaptedData;
   });
