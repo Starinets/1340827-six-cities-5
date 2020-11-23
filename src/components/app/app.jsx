@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Router, Switch, Route} from 'react-router-dom';
 import browserHistory from '../../browser-history';
 
 import withLogin from '../../hocs/with-login/with-login';
@@ -18,7 +18,7 @@ const App = () => {
   const favoriteCards = [];
 
   return (
-    <BrowserRouter history={ browserHistory }>
+    <Router history={ browserHistory }>
       <Switch>
 
         <Route exact path={ AppRoute.LOGIN }>
@@ -47,7 +47,7 @@ const App = () => {
         </Route>
 
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 
