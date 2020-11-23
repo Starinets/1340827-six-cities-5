@@ -6,6 +6,8 @@ import Favorites from './../favorites/favorites';
 import Offer from './../offer/offer';
 import Main from './../main/main';
 
+import {AppRoute} from '../../constants';
+
 const App = () => {
 
   const favoriteCards = [];
@@ -13,15 +15,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login">
+        <Route exact path={ AppRoute.LOGIN }>
           <Login />
         </Route>
-        <Route exact path="/favorites">
+        <Route exact path={ AppRoute.FAVORITES }>
           <Favorites
             offers = { favoriteCards }
           />
         </Route>
-        <Route exact path="/offer/:id"
+        <Route exact path={ `${AppRoute.OFFER}/:id` }
           render={() =>
             <Offer
               offer = {{}}
@@ -31,7 +33,7 @@ const App = () => {
           }
         />
         {/* не будем использовать 404, при любых не корректных данных отрисовать Main */}
-        <Route path="/">
+        <Route path={ AppRoute.ROOT }>
           <Main />
         </Route>
       </Switch>

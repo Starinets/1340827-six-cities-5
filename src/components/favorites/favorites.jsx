@@ -4,6 +4,8 @@ import {NavLink} from 'react-router-dom';
 
 import OfferCard from './../offer-card/offer-card';
 
+import {AppRoute} from '../../constants';
+
 const reduceOffersByCity = (offers) => {
 
   return offers.reduce((offersByCity, offer) => {
@@ -37,7 +39,10 @@ const generateCityList = (cities) => {
         <li className="favorites__locations-items" key={ index }>
           <div className="favorites__locations locations locations--current">
             <div className="locations__item">
-              <NavLink className="locations__item-link" to="/">
+              <NavLink
+                className="locations__item-link"
+                to={ AppRoute.ROOT }
+              >
                 <span>{ cityName }</span>
               </NavLink>
             </div>

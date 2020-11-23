@@ -15,6 +15,7 @@ import Map from '../map/map';
 
 import {transformRatingToWidth} from '../../utils';
 import {
+  AppRoute,
   MapPlace,
   OfferPlace
 } from '../../constants';
@@ -40,14 +41,20 @@ const Offer = ({offerID, offers}) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <NavLink className="header__logo-link" to="/">
+              <NavLink
+                className="header__logo-link"
+                to={ AppRoute.ROOT }
+              >
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </NavLink>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <NavLink className="header__nav-link header__nav-link--profile" to="/">
+                  <NavLink
+                    className="header__nav-link header__nav-link--profile"
+                    to={ AppRoute.ROOT }
+                  >
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__login">Sign in</span>
@@ -122,7 +129,7 @@ const Offer = ({offerID, offers}) => {
         </section>
         <div className="container">
           <section className="near-places places">
-            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <h2 className="near-places__title">Other places in the neighborhood</h2>
             <OfferListWrapper
               offers = { offers }
               offerPlace = { OfferPlace.NEIGHBORHOOD }

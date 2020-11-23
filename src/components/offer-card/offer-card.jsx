@@ -3,6 +3,7 @@ import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
 import {transformRatingToWidth} from '../../utils';
+import {AppRoute} from '../../constants';
 
 const OfferCard = (props) => {
 
@@ -26,7 +27,9 @@ const OfferCard = (props) => {
       onClick={ () => props.onMouseOver(null) }
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <NavLink to={ `/offer/${ id }` }>
+        <NavLink
+          to={ `${ AppRoute.OFFER }/${ id }` }
+        >
           <img className="place-card__image" src={ image } width="260" height="200" alt="Place image" />
         </NavLink>
       </div>
@@ -50,7 +53,11 @@ const OfferCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <NavLink to={ `/offer/${ id }` }>{ name }</NavLink>
+          <NavLink
+            to={ `${ AppRoute.OFFER }/${ id }` }
+          >
+            { name }
+          </NavLink>
         </h2>
         <p className="place-card__type">{ type }</p>
       </div>

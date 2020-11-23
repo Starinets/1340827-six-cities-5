@@ -1,6 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
+import {AppRoute} from '../../constants';
+
 const Login = () => {
 
   return (
@@ -9,14 +11,20 @@ const Login = () => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <NavLink className="header__logo-link" to="/">
+              <NavLink
+                className="header__logo-link"
+                to={ AppRoute.ROOT }
+              >
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </NavLink>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <NavLink className="header__nav-link header__nav-link--profile" to="/">
+                  <NavLink
+                    className="header__nav-link header__nav-link--profile"
+                    to={ AppRoute.ROOT }
+                  >
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__login">Sign in</span>
@@ -46,7 +54,10 @@ const Login = () => {
           </section>
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <NavLink className="locations__item-link" to="/">
+              <NavLink
+                className="locations__item-link"
+                to={ AppRoute.ROOT }
+              >
                 <span>Amsterdam</span>
               </NavLink>
             </div>
