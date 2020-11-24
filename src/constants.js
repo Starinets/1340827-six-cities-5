@@ -50,6 +50,18 @@ const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+const AppRoute = {
+  LOGIN: `/login`,
+  FAVORITES: `/favorites`,
+  ROOT: `/`,
+  OFFER: `/offer`
+};
+
+const APIRoute = {
+  HOTELS: `/hotels`,
+  LOGIN: `/login`,
+};
+
 export {
   START_MAP_POSITION,
   START_MAP_ZOOM,
@@ -63,4 +75,6 @@ export {
   Icon,
   ActiveIcon,
   AuthorizationStatus,
+  AppRoute,
+  APIRoute,
 };

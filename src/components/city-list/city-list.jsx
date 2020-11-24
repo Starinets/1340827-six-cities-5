@@ -2,7 +2,10 @@ import React from "react";
 import * as Type from '../../types';
 import {NavLink} from "react-router-dom";
 
-import {City} from '../../constants';
+import {
+  City,
+  AppRoute
+} from '../../constants';
 
 const CityList = (props) => {
 
@@ -20,7 +23,7 @@ const CityList = (props) => {
               return (
                 <li key={city} className="locations__item">
                   <NavLink
-                    to={`/`}
+                    to={ AppRoute.ROOT }
                     className={`locations__item-link tabs__item ${city === currentCity ? `tabs__item--active` : ``}`}
                     onClick={() => onCityClick(city)}
                   >
