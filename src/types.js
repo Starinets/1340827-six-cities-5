@@ -96,6 +96,12 @@ const AUTH_INFO = shape({
   ])
 });
 
+const MATCH_OFFER_ID = shape({
+  params: shape({
+    id: string.isRequired
+  })
+});
+
 export {
   number as NUMBER,
   string as STRING,
@@ -115,5 +121,6 @@ export {
   OFFERS,
   MAP_PLACE,
   OFFER_PLACE,
-  AUTH_INFO
+  AUTH_INFO,
+  MATCH_OFFER_ID
 };
