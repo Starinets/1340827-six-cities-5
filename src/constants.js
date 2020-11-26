@@ -3,6 +3,9 @@ const START_MAP_ZOOM = 12;
 const MAP_LAYER = `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`;
 const MAP_ATTRIBUTION = `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`;
 
+const RATING_MULTIPLICATOR = 20;
+const MAX_REVIEWS_ON_PAGE = 10;
+
 const City = {
   PARIS: `Paris`,
   COLOGNE: `Cologne`,
@@ -60,6 +63,21 @@ const AppRoute = {
 const APIRoute = {
   HOTELS: `/hotels`,
   LOGIN: `/login`,
+  FAVORITE: `/favorite`,
+  COMMENTS: `/comments`,
+  NEARBY: `/nearby`
+};
+
+const ReviewFormState = {
+  SENDING_ERROR: `SENDING_ERROR`,
+  EDITING: `EDITING`,
+  POSTING_COMMENT: `POSTING_COMMENT`,
+  DEFAULT: `DEFAULT`
+};
+
+const ReviewFormValue = {
+  MIN_LENGTH: 50,
+  MAX_LENGTH: 300,
 };
 
 export {
@@ -67,6 +85,8 @@ export {
   START_MAP_ZOOM,
   MAP_LAYER,
   MAP_ATTRIBUTION,
+  MAX_REVIEWS_ON_PAGE,
+  RATING_MULTIPLICATOR,
   City,
   SortList,
   MapPlace,
@@ -77,4 +97,6 @@ export {
   AuthorizationStatus,
   AppRoute,
   APIRoute,
+  ReviewFormState,
+  ReviewFormValue,
 };
