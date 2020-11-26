@@ -1,6 +1,12 @@
 import {NameSpace} from './reducers/reducer';
 import {createSelector} from 'reselect';
-import {getCurrentCityOfferList, sortOfferListBy, adaptDataToClient} from '../utils';
+import {
+  getCurrentCityOfferList,
+  sortOfferListBy,
+  adaptOfferToClient,
+  adaptOffersToClient,
+  adaptReviewsToClient,
+} from '../utils';
 
 const getOfferList = (state) => state[NameSpace.API_DATA].offers;
 
@@ -16,7 +22,7 @@ const getHoveredOffer = (state) => state[NameSpace.APP_STATE].hoveredOffer;
 
 const adaptedOfferList = createSelector(
     getOfferList,
-    (offers) => adaptDataToClient(offers)
+    (offers) => adaptOffersToClient(offers)
 );
 
 const getFilteredOfferList = createSelector(
@@ -28,6 +34,29 @@ const getFilteredOfferList = createSelector(
 
 const getAuthInfo = (state) => state[NameSpace.USER].authInfo;
 
+const getCurrentOfferFromOfferDetails = (state) => state[NameSpace.API_DATA].offerDetails.offer;
+
+const getReviewsFromOfferDetails = (state) => state[NameSpace.API_DATA].offerDetails.reviews;
+
+const getNeighborhoodsFromOfferDetails = (state) =>state[NameSpace.API_DATA].offerDetails.neighborhoods;
+
+const getCurrentOffer = createSelector(
+    getCurrentOfferFromOfferDetails,
+    (offer) => adaptOfferToClient(offer)
+);
+
+const getReviews = createSelector(
+    getReviewsFromOfferDetails,
+    (reviews) => adaptReviewsToClient(reviews)
+);
+
+const getNeighborhoods = createSelector(
+    getNeighborhoodsFromOfferDetails,
+    (neighborhoods) => adaptOffersToClient(neighborhoods)
+);
+
+const getReviewFormState = (state) => state[NameSpace.APP_STATE].reviewFormState;
+
 export {
   getOfferList,
   getAuthorizationStatus,
@@ -37,5 +66,9 @@ export {
   getHoveredOffer,
   adaptedOfferList,
   getFilteredOfferList,
-  getAuthInfo
+  getAuthInfo,
+  getCurrentOffer,
+  getReviews,
+  getNeighborhoods,
+  getReviewFormState
 };
