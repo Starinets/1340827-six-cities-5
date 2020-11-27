@@ -80,6 +80,14 @@ const ReviewFormValue = {
   MAX_LENGTH: 300,
 };
 
+const FavoriteButtonProperty = {
+  PlaceCard: {
+    CLASS_NAME: `place-card`,
+    WIDTH: 18,
+    HEIGHT: 19,
+  }
+};
+
 export {
   START_MAP_POSITION,
   START_MAP_ZOOM,
@@ -99,4 +107,5 @@ export {
   APIRoute,
   ReviewFormState,
   ReviewFormValue,
+  FavoriteButtonProperty
 };
