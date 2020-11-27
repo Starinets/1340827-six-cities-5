@@ -87,4 +87,5 @@ FavoriteButton.propTypes = {
   changeOfferStatus: Type.FUNCTION.isRequired
 };
 
+export {FavoriteButton};
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteButton);

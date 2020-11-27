@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> FavoriteButton the offer is in the favorite list, authorization is AUTH 1`] = `
+<button
+  className="place-card__bookmark-button place-card__bookmark-button--active button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="place-card__bookmark-icon"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To bookmarks
+  </span>
+</button>
+`;
+
+exports[`Component rendered correctly -> FavoriteButton the offer is in the favorite list, authorization is NO_AUTH 1`] = `
+<button
+  className="place-card__bookmark-button place-card__bookmark-button--active button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="place-card__bookmark-icon"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To bookmarks
+  </span>
+</button>
+`;
+
+exports[`Component rendered correctly -> FavoriteButton the offer isn't in the favorite list, authorization is AUTH 1`] = `
+<button
+  className="place-card__bookmark-button  button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="place-card__bookmark-icon"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To bookmarks
+  </span>
+</button>
+`;
+
+exports[`Component rendered correctly -> FavoriteButton the offer isn't in the favorite list, authorization is NO_AUTH 1`] = `
+<button
+  className="place-card__bookmark-button  button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="place-card__bookmark-icon"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To bookmarks
+  </span>
+</button>
+`;
