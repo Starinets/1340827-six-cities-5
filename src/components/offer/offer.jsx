@@ -14,6 +14,7 @@ import OfferList from '../offer-list/offer-list';
 import withReviewForm from '../../hocs/with-review-form/with-review-form';
 import ReviewForm from '../review-form/review-form';
 import Map from '../map/map';
+import FavoriteButton from '../favorite-button/favorite-button';
 
 import {
   getCurrentOffer,
@@ -25,7 +26,8 @@ import {setHoveredOffer, updateCurrentOffer} from '../../store/action';
 import {transformRatingToWidth} from '../../utils';
 import {
   MapPlace,
-  OfferPlace
+  OfferPlace,
+  FavoriteButtonProperty
 } from '../../constants';
 
 const OfferListWrapper = withOfferList(OfferList);
@@ -93,6 +95,13 @@ class Offer extends React.PureComponent {
                     </svg>
                     <span className="visually-hidden">To bookmarks</span>
                   </button>
+                  <FavoriteButton
+                    id={ offer.id }
+                    className={ FavoriteButtonProperty.Property.CLASS_NAME }
+                    buttonWidth={ FavoriteButtonProperty.Property.WIDTH }
+                    buttonHeight={ FavoriteButtonProperty.Property.HEIGHT }
+                    isFavorite={ offer.isFavorite }
+                  />
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">

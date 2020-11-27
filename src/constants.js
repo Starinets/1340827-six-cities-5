@@ -90,6 +90,11 @@ const FavoriteButtonProperty = {
     CLASS_NAME: `place-card`,
     WIDTH: 18,
     HEIGHT: 19,
+  },
+  Property: {
+    CLASS_NAME: `property`,
+    WIDTH: 31,
+    HEIGHT: 33,
   }
 };
 
