@@ -8,6 +8,7 @@ import FavoriteList from '../favorite-list/favorite-list';
 import FavoritesEmpty from '../favorites-empty/favorites-empty';
 
 import {fetchFavoriteList} from '../../store/api-actions';
+import {setCurrentCity} from '../../store/action';
 import {getFavoriteOfferList} from '../../store/selectors';
 import {AppRoute} from '../../constants';
 
@@ -23,7 +24,10 @@ class Favorites extends React.PureComponent {
 
   render() {
 
-    const {favoriteList} = this.props;
+    const {
+      favoriteList,
+      onCityClick
+    } = this.props;
 
     return (
       <div className="page">
@@ -32,7 +36,10 @@ class Favorites extends React.PureComponent {
           <div className="page__favorites-container container">
             { !favoriteList.length
               ? <FavoritesEmpty/>
-              : <FavoriteList favoriteList={ favoriteList }/>
+              : <FavoriteList
+                favoriteList={ favoriteList }
+                onCityClick={ onCityClick }
+              />
             }
           </div>
         </main>
@@ -53,12 +60,16 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getFavoriteList() {
     dispatch(fetchFavoriteList());
+  },
+  onCityClick(city) {
+    dispatch(setCurrentCity(city));
   }
 });
 
 Favorites.propTypes = {
   favoriteList: Type.FAVORITES,
-  getFavoriteList: Type.FUNCTION.isRequired
+  getFavoriteList: Type.FUNCTION.isRequired,
+  onCityClick: Type.FUNCTION.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

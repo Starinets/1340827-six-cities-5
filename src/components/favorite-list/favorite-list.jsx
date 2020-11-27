@@ -4,7 +4,7 @@ import FavoriteItems from '../favorite-items/favorite-items';
 
 const FavoriteList = (props) => {
 
-  const {favoriteList} = props;
+  const {favoriteList, onCityClick} = props;
 
   return (
     <section className="favorites">
@@ -15,6 +15,7 @@ const FavoriteList = (props) => {
             <FavoriteItems
               key={ `favorite-item-${ favoritesByCity.city }` }
               favoritesByCity={ favoritesByCity }
+              onCityClick={ onCityClick }
             />
           ))
         }
@@ -24,7 +25,8 @@ const FavoriteList = (props) => {
 };
 
 FavoriteList.propTypes = {
-  favoriteList: Type.FAVORITES.isRequired
+  favoriteList: Type.FAVORITES.isRequired,
+  onCityClick: Type.FUNCTION.isRequired
 };
 
 export default FavoriteList;

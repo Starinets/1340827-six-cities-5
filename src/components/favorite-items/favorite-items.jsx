@@ -13,6 +13,7 @@ import {
 const FavoriteItems = (props) => {
 
   const {city, favorites} = props.favoritesByCity;
+  const {onCityClick} = props;
 
   return (
     <li className="favorites__locations-items">
@@ -21,6 +22,7 @@ const FavoriteItems = (props) => {
           <NavLink
             className="locations__item-link"
             to={ AppRoute.ROOT }
+            onClick={() => onCityClick(city)}
           >
             <span>{city}</span>
           </NavLink>
@@ -44,7 +46,8 @@ const FavoriteItems = (props) => {
 };
 
 FavoriteItems.propTypes = {
-  favoritesByCity: Type.FAVORITES_BY_CITY.isRequired
+  favoritesByCity: Type.FAVORITES_BY_CITY.isRequired,
+  onCityClick: Type.FUNCTION
 };
 
 export default FavoriteItems;
