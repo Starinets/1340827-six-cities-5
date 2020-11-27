@@ -29,7 +29,8 @@ const MapPlace = {
 
 const OfferPlace = {
   CITIES: `cities__place-`,
-  NEIGHBORHOOD: `near-places__`
+  NEIGHBORHOOD: `near-places__`,
+  FAVORITES: `favorites__`
 };
 
 const OfferListClassName = {
@@ -98,6 +99,17 @@ const FavoriteButtonProperty = {
   }
 };
 
+const OfferCardImage = {
+  Favorite: {
+    WIDTH: 150,
+    HEIGHT: 110
+  },
+  List: {
+    WIDTH: 260,
+    HEIGHT: 200
+  }
+};
+
 export {
   START_MAP_POSITION,
   START_MAP_ZOOM,
@@ -118,5 +130,6 @@ export {
   ReviewFormState,
   ReviewFormValue,
   FavoriteStatus,
-  FavoriteButtonProperty
+  FavoriteButtonProperty,
+  OfferCardImage
 };

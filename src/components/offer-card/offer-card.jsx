@@ -31,11 +31,11 @@ const OfferCard = (props) => {
       onMouseOut={ () => props.onMouseOver(null) }
       onClick={ () => props.onMouseOver(null) }
     >
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${ props.offerPlace }image-wrapper place-card__image-wrapper`}>
         <NavLink
           to={ `${ AppRoute.OFFER }/${ id }` }
         >
-          <img className="place-card__image" src={ image } width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={ image } width={ props.imageSize.WIDTH } height={ props.imageSize.HEIGHT } alt="Place image" />
         </NavLink>
       </div>
       <div className="place-card__info">
@@ -74,6 +74,7 @@ const OfferCard = (props) => {
 OfferCard.propTypes = {
   offer: Type.OFFER.isRequired,
   offerPlace: Type.OFFER_PLACE.isRequired,
+  imageSize: Type.IMAGE_SIZE,
   onMouseOver: Type.FUNCTION.isRequired
 };
 

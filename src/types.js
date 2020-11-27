@@ -86,7 +86,8 @@ const MAP_PLACE = oneOf([
 
 const OFFER_PLACE = oneOf([
   OfferPlace.CITIES,
-  OfferPlace.NEIGHBORHOOD
+  OfferPlace.NEIGHBORHOOD,
+  OfferPlace.FAVORITES
 ]);
 
 const AUTH_INFO = shape({
@@ -100,6 +101,20 @@ const MATCH_OFFER_ID = shape({
   params: shape({
     id: string.isRequired
   })
+});
+
+const FAVORITES_BY_CITY = shape({
+  city: CITY.isRequired,
+  favorites: OFFERS.isRequired
+});
+
+const FAVORITES = arrayOf(
+    FAVORITES_BY_CITY
+);
+
+const IMAGE_SIZE = shape({
+  WIDTH: number,
+  HEIGHT: number
 });
 
 export {
@@ -122,5 +137,8 @@ export {
   MAP_PLACE,
   OFFER_PLACE,
   AUTH_INFO,
-  MATCH_OFFER_ID
+  MATCH_OFFER_ID,
+  FAVORITES_BY_CITY,
+  FAVORITES,
+  IMAGE_SIZE
 };

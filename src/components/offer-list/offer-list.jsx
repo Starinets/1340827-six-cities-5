@@ -5,7 +5,8 @@ import OfferCard from './../offer-card/offer-card';
 
 import {
   OfferPlace,
-  OfferListClassName
+  OfferListClassName,
+  OfferCardImage
 } from '../../constants';
 
 const OfferList = (props) => {
@@ -20,6 +21,7 @@ const OfferList = (props) => {
         key = { offer.id }
         offer = { offer }
         offerPlace = { props.offerPlace }
+        imageSize = { OfferCardImage.List }
         onMouseOver = { props.changeHoveredOffer }
       />
     );

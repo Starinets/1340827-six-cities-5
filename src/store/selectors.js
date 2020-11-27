@@ -57,6 +57,25 @@ const getNeighborhoods = createSelector(
 
 const getReviewFormState = (state) => state[NameSpace.APP_STATE].reviewFormState;
 
+const getFavorites = (state) => state[NameSpace.API_DATA].favorites;
+
+const getFavoriteOfferList = createSelector(
+    getFavorites,
+    (offers) => {
+      const offersByCity = [];
+      const cities = Array.from(new Set(offers.map((offer) => offer.city.name)));
+
+      cities.forEach((city) => {
+        offersByCity.push({
+          city,
+          favorites: adaptOffersToClient(offers.filter((offer) => offer.city.name === city))
+        });
+      });
+
+      return offersByCity;
+    }
+);
+
 export {
   getOfferList,
   getAuthorizationStatus,
@@ -70,5 +89,6 @@ export {
   getCurrentOffer,
   getReviews,
   getNeighborhoods,
-  getReviewFormState
+  getReviewFormState,
+  getFavoriteOfferList
 };
