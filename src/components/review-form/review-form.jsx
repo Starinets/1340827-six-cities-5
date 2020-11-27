@@ -1,53 +1,59 @@
 import React from 'react';
 import * as Type from '../../types';
+import {ReviewFormValue} from '../../constants';
 
 const ReviewForm = (props) => {
 
   const {
     rating,
     review,
-    isSubmit,
+    isFormDisabled,
     onRatingChange,
-    onTextAreaChange
+    onTextAreaChange,
+    onSubmit
   } = props;
-  const isDisabled = Boolean(!review || !rating || isSubmit);
+
+  const isDisabled =
+      rating <= 0
+      || isFormDisabled
+      || review.length < ReviewFormValue.MIN_LENGTH
+      || review.length > ReviewFormValue.MAX_LENGTH;
 
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={ onSubmit }>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div
         className="reviews__rating-form form__rating"
-        onChange={ onRatingChange }
       >
-        <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio"/>
+        <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" disabled={ isFormDisabled } checked={ rating === 1 ? true : false } onChange={ onRatingChange }/>
         <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
         </label>
 
-        <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" />
+        <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" disabled={ isFormDisabled } checked={ rating === 2 ? true : false } onChange={ onRatingChange }/>
         <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
         </label>
 
-        <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" />
+        <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" disabled={ isFormDisabled } checked={ rating === 3 ? true : false } onChange={ onRatingChange }/>
         <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
         </label>
 
-        <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" />
+        <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" disabled={ isFormDisabled } checked={ rating === 4 ? true : false } onChange={ onRatingChange }/>
         <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
         </label>
 
-        <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" />
+        <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" disabled={ isFormDisabled } checked={ rating === 5 ? true : false } onChange={ onRatingChange }/>
         <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
@@ -60,7 +66,8 @@ const ReviewForm = (props) => {
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
         onChange={ onTextAreaChange }
-        value = { review }
+        value={ review }
+        disabled={ isFormDisabled }
       ></textarea>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -79,9 +86,10 @@ const ReviewForm = (props) => {
 ReviewForm.propTypes = {
   rating: Type.NUMBER,
   review: Type.STRING,
-  isSubmit: Type.BOOLEAN,
+  isFormDisabled: Type.BOOLEAN.isRequired,
   onRatingChange: Type.FUNCTION.isRequired,
-  onTextAreaChange: Type.FUNCTION.isRequired
+  onTextAreaChange: Type.FUNCTION.isRequired,
+  onSubmit: Type.FUNCTION.isRequired
 };
 
 export default ReviewForm;

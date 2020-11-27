@@ -31,13 +31,9 @@ const App = () => {
           render={ () => <Favorites offers={ favoriteCards } /> }
         />
 
-        <Route exact path={ `${AppRoute.OFFER}/:id` }
-          render={() =>
-            <Offer
-              offer = {{}}
-              reviews = {[]}
-              offers = {[]}
-            />
+        <Route exact path={ `${AppRoute.OFFER}/:id?` }
+          render={(props) =>
+            <Offer {...props} />
           }
         />
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import * as Type from '../../types';
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
+
+import FavoriteButton from '../favorite-button/favorite-button';
 
 import {transformRatingToWidth} from '../../utils';
-import {AppRoute} from '../../constants';
+import {
+  AppRoute,
+  FavoriteButtonProperty
+} from '../../constants';
 
 const OfferCard = (props) => {
 
@@ -26,11 +31,11 @@ const OfferCard = (props) => {
       onMouseOut={ () => props.onMouseOver(null) }
       onClick={ () => props.onMouseOver(null) }
     >
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${ props.offerPlace }image-wrapper place-card__image-wrapper`}>
         <NavLink
           to={ `${ AppRoute.OFFER }/${ id }` }
         >
-          <img className="place-card__image" src={ image } width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={ image } width={ props.imageSize.WIDTH } height={ props.imageSize.HEIGHT } alt="Place image" />
         </NavLink>
       </div>
       <div className="place-card__info">
@@ -39,12 +44,13 @@ const OfferCard = (props) => {
             <b className="place-card__price-value">&euro;{ price }</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={ `place-card__bookmark-button ${ isFavorite ? `place-card__bookmark-button--active` : `` } button` } type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
-            </svg>
-            <span className="visually-hidden">In bookmarks</span>
-          </button>
+          <FavoriteButton
+            id={ id }
+            className={ FavoriteButtonProperty.PlaceCard.CLASS_NAME }
+            buttonWidth={ FavoriteButtonProperty.PlaceCard.WIDTH }
+            buttonHeight={ FavoriteButtonProperty.PlaceCard.HEIGHT }
+            isFavorite={ isFavorite }
+          />
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
@@ -68,6 +74,7 @@ const OfferCard = (props) => {
 OfferCard.propTypes = {
   offer: Type.OFFER.isRequired,
   offerPlace: Type.OFFER_PLACE.isRequired,
+  imageSize: Type.IMAGE_SIZE,
   onMouseOver: Type.FUNCTION.isRequired
 };
 
