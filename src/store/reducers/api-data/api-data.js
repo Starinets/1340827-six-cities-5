@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   offers: [],
-  favorite: [],
+  favorites: [],
   offerDetails: {
     offer: null,
     reviews: [],

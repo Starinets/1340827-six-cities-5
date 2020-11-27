@@ -67,18 +67,18 @@ const setReviews = (reviews) => ({
 });
 
 const updateOffer = (offer) => ({
-  type: ActionType.UPDATE_OFFER,
+  type: ActionType.UPDATE_OFFERS,
   payload: offer
 });
 
-const updateFavorites = (offers) => ({
+const updateFavorites = (offer) => ({
   type: ActionType.UPDATE_FAVORITES,
-  payload: offers
+  payload: offer
 });
 
-const updateNeighborhoods = (neighborhoods) => ({
+const updateNeighborhoods = (offer) => ({
   type: ActionType.UPDATE_NEIGHBORHOODS,
-  payload: neighborhoods
+  payload: offer
 });
 
 const updateCurrentOffer = (offer) => ({
