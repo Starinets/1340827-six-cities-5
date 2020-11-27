@@ -44,6 +44,13 @@ class Offer extends React.PureComponent {
     this.props.getCurrentOffer(id);
   }
 
+  componentDidUpdate(prevProps) {
+    const {id} = this.props.match.params;
+    if (prevProps.match.params.id !== id) {
+      this.props.getCurrentOffer(id);
+    }
+  }
+
   componentWillUnmount() {
     this.props.removeActiveCard();
   }
