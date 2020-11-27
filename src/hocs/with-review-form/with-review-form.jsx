@@ -59,7 +59,6 @@ const withReviewForm = (Component) => {
           );
           break;
         case ReviewFormState.DEFAULT:
-          console.log(`================ 222 ================`);
           this.setState(() => ({
             rating: 0,
             review: ``,
@@ -77,7 +76,6 @@ const withReviewForm = (Component) => {
 
     render() {
       const {rating, review, isFormDisabled} = this.state;
-      console.log("rating -> ", rating, " : ", review)
 
       if (this.props.authorizationStatus !== AuthorizationStatus.AUTH) {
         return null;
