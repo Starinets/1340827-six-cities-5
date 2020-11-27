@@ -80,6 +80,11 @@ const ReviewFormValue = {
   MAX_LENGTH: 300,
 };
 
+const FavoriteStatus = {
+  YES: 1,
+  NO: 0
+};
+
 const FavoriteButtonProperty = {
   PlaceCard: {
     CLASS_NAME: `place-card`,
@@ -107,5 +112,6 @@ export {
   APIRoute,
   ReviewFormState,
   ReviewFormValue,
+  FavoriteStatus,
   FavoriteButtonProperty
 };
