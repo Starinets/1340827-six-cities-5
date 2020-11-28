@@ -364,7 +364,7 @@ exports[`Component rendered correctly -> ReviewForm with data and the Form isn't
 </form>
 `;
 
-exports[`Component rendered correctly -> ReviewForm without data and the form isn't disabled 1`] = `
+exports[`Component rendered correctly -> ReviewForm without data and the Form isn't disabled 1`] = `
 <form
   action="#"
   className="reviews__form form"
