@@ -54,6 +54,23 @@ export const matchOfferID = {
   }
 };
 
+export const OfferPlace = {
+  CITIES: `cities__place-`,
+  NEIGHBORHOOD: `near-places__`,
+  FAVORITES: `favorites__`
+};
+
+export const OfferCardImage = {
+  Favorite: {
+    WIDTH: 150,
+    HEIGHT: 110
+  },
+  List: {
+    WIDTH: 260,
+    HEIGHT: 200
+  }
+};
+
 export const Offers = [
   {
     "city": {
