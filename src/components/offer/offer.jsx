@@ -44,6 +44,13 @@ class Offer extends React.PureComponent {
     this.props.getCurrentOffer(id);
   }
 
+  componentDidUpdate(prevProps) {
+    const {id} = this.props.match.params;
+    if (prevProps.match.params.id !== id) {
+      this.props.getCurrentOffer(id);
+    }
+  }
+
   componentWillUnmount() {
     this.props.removeActiveCard();
   }
@@ -185,4 +192,5 @@ Offer.propTypes = {
   match: Type.MATCH_OFFER_ID.isRequired,
 };
 
+export {Offer};
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);

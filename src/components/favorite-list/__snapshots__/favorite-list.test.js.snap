@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> FavoriteList 1`] = `
+<section
+  className="favorites"
+>
+  <h1
+    className="favorites__title"
+  >
+    Saved listing
+  </h1>
+  <ul
+    className="favorites__list"
+  >
+    <FavoriteItems
+      favoritesByCity={
+        Object {
+          "city": "Paris",
+          "favorites": undefined,
+        }
+      }
+      onCityClick={[Function]}
+    />
+    <FavoriteItems
+      favoritesByCity={
+        Object {
+          "city": "Dusseldorf",
+          "favorites": undefined,
+        }
+      }
+      onCityClick={[Function]}
+    />
+  </ul>
+</section>
+`;

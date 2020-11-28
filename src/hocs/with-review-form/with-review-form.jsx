@@ -57,7 +57,7 @@ const withReviewForm = (Component) => {
             isFormDisabled: false
           })
           );
-          break;
+          return;
         case ReviewFormState.DEFAULT:
           this.setState(() => ({
             rating: 0,
@@ -65,7 +65,7 @@ const withReviewForm = (Component) => {
             isFormDisabled: false
           })
           );
-          break;
+          return;
         case ReviewFormState.POSTING_COMMENT:
           this.setState(() => ({
             isFormDisabled: true

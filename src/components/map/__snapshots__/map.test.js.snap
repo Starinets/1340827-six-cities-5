@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> Map on the Main page 1`] = `
+<section
+  className="cities__map map"
+  id="map"
+/>
+`;
+
+exports[`Component rendered correctly -> Map on the Offer page 1`] = `
+<section
+  className="property__map map"
+  id="map"
+/>
+`;

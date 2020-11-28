@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> OfferImageList 1`] = `
+Array [
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg"
+    />
+  </div>,
+  <div
+    className="property__image-wrapper"
+  >
+    <img
+      alt="Photo studio"
+      className="property__image"
+      src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg"
+    />
+  </div>,
+]
+`;

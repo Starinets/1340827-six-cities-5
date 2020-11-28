@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import * as Type from "../../types";
 
+import {setCurrentCity} from '../../store/action';
 import {login} from "../../store/api-actions";
 
 const withLogin = (Component) => {
@@ -43,18 +44,23 @@ const withLogin = (Component) => {
           onEmailChange={ this.handleEmailChange }
           onPasswordChange={ this.handlePasswordChange }
           onFormSubmit={ this.handleFormSubmit }
+          onCityClick={ this.props.onCityClick }
         />
       );
     }
   }
 
   WithLogin.propTypes = {
-    onFormSubmit: Type.FUNCTION.isRequired
+    onFormSubmit: Type.FUNCTION.isRequired,
+    onCityClick: Type.FUNCTION.isRequired
   };
 
   const mapDispatchToProps = (dispatch) => ({
     onFormSubmit(authData) {
       dispatch(login(authData));
+    },
+    onCityClick(city) {
+      dispatch(setCurrentCity(city));
     }
   });
 

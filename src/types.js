@@ -105,7 +105,7 @@ const MATCH_OFFER_ID = shape({
 
 const FAVORITES_BY_CITY = shape({
   city: CITY.isRequired,
-  favorites: OFFERS.isRequired
+  favorites: OFFERS
 });
 
 const FAVORITES = arrayOf(

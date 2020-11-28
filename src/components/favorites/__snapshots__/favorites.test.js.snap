@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> Favorites Favorites is empty 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Memo(Connect(Favorites))
+    favoriteList={Array []}
+    onCityClick={[Function]}
+  />
+</Router>
+`;
+
+exports[`Component rendered correctly -> Favorites Favorites isn't empty 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Memo(Connect(Favorites))
+    favoriteList={
+      Array [
+        Object {
+          "city": "Hamburg",
+          "favorites": undefined,
+        },
+        Object {
+          "city": "Brussels",
+          "favorites": undefined,
+        },
+      ]
+    }
+    onCityClick={[Function]}
+  />
+</Router>
+`;

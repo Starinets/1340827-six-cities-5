@@ -4,11 +4,21 @@ import {NavLink} from "react-router-dom";
 
 import Header from '../header/header';
 
-import {AppRoute} from '../../constants';
+import {
+  AppRoute,
+  City
+} from '../../constants';
 
 const Login = (props) => {
 
-  const {onFormSubmit, onEmailChange, onPasswordChange, email, password} = props;
+  const {
+    onFormSubmit,
+    onEmailChange,
+    onPasswordChange,
+    email,
+    password,
+    onCityClick
+  } = props;
 
   return (
     <div className="page page--gray page--login">
@@ -56,6 +66,7 @@ const Login = (props) => {
               <NavLink
                 className="locations__item-link"
                 to={ AppRoute.ROOT }
+                onClick={() => onCityClick(City.AMSTERDAM)}
               >
                 <span>Amsterdam</span>
               </NavLink>
@@ -73,6 +84,7 @@ Login.propTypes = {
   onPasswordChange: Type.FUNCTION.isRequired,
   email: Type.STRING.isRequired,
   password: Type.STRING.isRequired,
+  onCityClick: Type.FUNCTION.isRequired
 };
 
 export default Login;

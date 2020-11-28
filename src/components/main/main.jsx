@@ -79,4 +79,5 @@ Main.propTypes = {
   onSortingClick: Type.FUNCTION.isRequired
 };
 
+export {Main};
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

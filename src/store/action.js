@@ -41,12 +41,12 @@ const loadOfferList = (offers) => ({
   payload: offers
 });
 
-export const setAuthInfo = (authInfo) => ({
+const setAuthInfo = (authInfo) => ({
   type: ActionType.SET_AUTH_INFO,
   payload: authInfo
 });
 
-export const redirectToRoute = (url) => ({
+const redirectToRoute = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url
 });
@@ -98,6 +98,8 @@ export {
   setHoveredOffer,
   setAuthorizationStatus,
   loadOfferList,
+  setAuthInfo,
+  redirectToRoute,
   loadFavorites,
   loadOfferDetails,
   setReviews,
