@@ -317,6 +317,8 @@ export const Offers = [
 
 export const offer = Offers[0];
 
+export const imageList = Offers[0][`images`];
+
 export const reviews = [
   {
     "id": 1,
