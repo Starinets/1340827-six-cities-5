@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component rendered correctly -> OfferFeatureList 1`] = `
+Array [
+  <li
+    className="property__inside-item"
+  >
+    Laptop friendly workspace
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Washer
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Towels
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Fridge
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Air conditioning
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Baby seat
+  </li>,
+  <li
+    className="property__inside-item"
+  >
+    Breakfast
+  </li>,
+]
+`;

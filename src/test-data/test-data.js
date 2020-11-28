@@ -71,6 +71,16 @@ export const OfferCardImage = {
   }
 };
 
+export const featuresList = [
+  `Laptop friendly workspace`,
+  `Washer`,
+  `Towels`,
+  `Fridge`,
+  `Air conditioning`,
+  `Baby seat`,
+  `Breakfast`
+];
+
 export const Offers = [
   {
     "city": {
