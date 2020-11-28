@@ -36,7 +36,6 @@ const FavoriteItems = (props) => {
               offer = { favoriteItem }
               offerPlace = { OfferPlace.FAVORITES }
               imageSize = { OfferCardImage.Favorite }
-              onMouseOver = { () => {} }
             />
           ))
         }
