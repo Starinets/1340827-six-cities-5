@@ -38,7 +38,7 @@ const withLogin = (Component) => {
 
     render() {
 
-      const {onCityClick} = this.props;
+      const {onItemClick} = this.props;
 
       return (
         <Component
@@ -47,7 +47,7 @@ const withLogin = (Component) => {
           onEmailChange={ this.handleEmailChange }
           onPasswordChange={ this.handlePasswordChange }
           onFormSubmit={ this.handleFormSubmit }
-          onCityClick={ onCityClick }
+          onCityClick={ onItemClick }
         />
       );
     }
@@ -55,14 +55,14 @@ const withLogin = (Component) => {
 
   WithLogin.propTypes = {
     onFormSubmit: Type.FUNCTION.isRequired,
-    onCityClick: Type.FUNCTION.isRequired
+    onItemClick: Type.FUNCTION.isRequired
   };
 
   const mapDispatchToProps = (dispatch) => ({
     onFormSubmit(authData) {
       dispatch(login(authData));
     },
-    onCityClick(city) {
+    onItemClick(city) {
       dispatch(setCurrentCity(city));
     }
   });
