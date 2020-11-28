@@ -75,9 +75,15 @@ const withReviewForm = (Component) => {
     }
 
     render() {
-      const {rating, review, isFormDisabled} = this.state;
 
-      if (this.props.authorizationStatus !== AuthorizationStatus.AUTH) {
+      const {
+        rating,
+        review,
+        isFormDisabled
+      } = this.state;
+      const {authorizationStatus} = this.props;
+
+      if (authorizationStatus !== AuthorizationStatus.AUTH) {
         return null;
       }
 

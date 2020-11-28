@@ -37,6 +37,9 @@ const withLogin = (Component) => {
     }
 
     render() {
+
+      const {onCityClick} = this.props;
+
       return (
         <Component
           email={ this.state.email }
@@ -44,7 +47,7 @@ const withLogin = (Component) => {
           onEmailChange={ this.handleEmailChange }
           onPasswordChange={ this.handlePasswordChange }
           onFormSubmit={ this.handleFormSubmit }
-          onCityClick={ this.props.onCityClick }
+          onCityClick={ onCityClick }
         />
       );
     }

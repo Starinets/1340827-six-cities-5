@@ -74,8 +74,11 @@ class Map extends React.PureComponent {
   }
 
   render() {
+
+    const {mapPlace} = this.props;
+
     return (
-      <section className={ `${ this.props.mapPlace }__map map` } id="map"></section>
+      <section className={ `${ mapPlace }__map map` } id="map"></section>
     );
   }
 }

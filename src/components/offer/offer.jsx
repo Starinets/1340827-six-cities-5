@@ -56,6 +56,7 @@ class Offer extends React.PureComponent {
   }
 
   render() {
+
     const SINGULAR_MEANING = 1;
     const {
       offer,
