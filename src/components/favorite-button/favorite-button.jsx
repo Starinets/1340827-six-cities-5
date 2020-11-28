@@ -3,7 +3,7 @@ import * as Type from '../../types';
 import {connect} from 'react-redux';
 
 import {redirectToRoute} from '../../store/action';
-import {getAuthorizationStatus} from '../../store/selectors';
+import {getAuthorizationStatusSelector} from '../../store/selectors';
 import {setOfferStatus} from '../../store/api-actions';
 import {
   AuthorizationStatus,
@@ -64,7 +64,7 @@ class FavoriteButton extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state)
+  authorizationStatus: getAuthorizationStatusSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

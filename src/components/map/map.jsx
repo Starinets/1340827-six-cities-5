@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Type from '../../types';
 import {connect} from 'react-redux';
-import {getHoveredOffer} from '../../store/selectors';
+import {getHoveredOfferSelector} from '../../store/selectors';
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -81,7 +81,7 @@ class Map extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  hoveredOffer: getHoveredOffer(state)
+  hoveredOffer: getHoveredOfferSelector(state)
 });
 
 Map.propTypes = {

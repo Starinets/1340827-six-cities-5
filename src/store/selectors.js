@@ -10,29 +10,29 @@ import {
 
 const getOfferList = (state) => state[NameSpace.API_DATA].offers;
 
-const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
+const getAuthorizationStatusSelector = (state) => state[NameSpace.USER].authorizationStatus;
 
-const getCurrentCity = (state) => state[NameSpace.APP_STATE].currentCity;
+const getCurrentCitySelector = (state) => state[NameSpace.APP_STATE].currentCity;
 
-const getCities = (state) => state[NameSpace.APP_STATE].cities;
+const getCitiesSelector = (state) => state[NameSpace.APP_STATE].cities;
 
-const getCurrentSort = (state) => state[NameSpace.APP_STATE].currentSorting;
+const getCurrentSortSelector = (state) => state[NameSpace.APP_STATE].currentSorting;
 
-const getHoveredOffer = (state) => state[NameSpace.APP_STATE].hoveredOffer;
+const getHoveredOfferSelector = (state) => state[NameSpace.APP_STATE].hoveredOffer;
 
-const adaptedOfferList = createSelector(
+const adaptedOfferListSelector = createSelector(
     getOfferList,
     (offers) => adaptOffersToClient(offers)
 );
 
-const getFilteredOfferList = createSelector(
-    adaptedOfferList,
-    getCurrentCity,
-    getCurrentSort,
+const getFilteredOfferListSelector = createSelector(
+    adaptedOfferListSelector,
+    getCurrentCitySelector,
+    getCurrentSortSelector,
     (offers, currentCity, currentSort) => sortOfferListBy[currentSort](getCurrentCityOfferList(offers, currentCity).slice())
 );
 
-const getAuthInfo = (state) => state[NameSpace.USER].authInfo;
+const getAuthInfoSelector = (state) => state[NameSpace.USER].authInfo;
 
 const getCurrentOfferFromOfferDetails = (state) => state[NameSpace.API_DATA].offerDetails.offer;
 
@@ -40,26 +40,26 @@ const getReviewsFromOfferDetails = (state) => state[NameSpace.API_DATA].offerDet
 
 const getNeighborhoodsFromOfferDetails = (state) =>state[NameSpace.API_DATA].offerDetails.neighborhoods;
 
-const getCurrentOffer = createSelector(
+const getCurrentOfferSelector = createSelector(
     getCurrentOfferFromOfferDetails,
     (offer) => adaptOfferToClient(offer)
 );
 
-const getReviews = createSelector(
+const getReviewsSelector = createSelector(
     getReviewsFromOfferDetails,
     (reviews) => adaptReviewsToClient(reviews)
 );
 
-const getNeighborhoods = createSelector(
+const getNeighborhoodsSelector = createSelector(
     getNeighborhoodsFromOfferDetails,
     (neighborhoods) => adaptOffersToClient(neighborhoods)
 );
 
-const getReviewFormState = (state) => state[NameSpace.APP_STATE].reviewFormState;
+const getReviewFormStateSelector = (state) => state[NameSpace.APP_STATE].reviewFormState;
 
 const getFavorites = (state) => state[NameSpace.API_DATA].favorites;
 
-const getFavoriteOfferList = createSelector(
+const getFavoriteOfferListSelector = createSelector(
     getFavorites,
     (offers) => {
       const offersByCity = [];
@@ -77,18 +77,17 @@ const getFavoriteOfferList = createSelector(
 );
 
 export {
-  getOfferList,
-  getAuthorizationStatus,
-  getCurrentCity,
-  getCities,
-  getCurrentSort,
-  getHoveredOffer,
-  adaptedOfferList,
-  getFilteredOfferList,
-  getAuthInfo,
-  getCurrentOffer,
-  getReviews,
-  getNeighborhoods,
-  getReviewFormState,
-  getFavoriteOfferList
+  getAuthorizationStatusSelector,
+  getCurrentCitySelector,
+  getCitiesSelector,
+  getCurrentSortSelector,
+  getHoveredOfferSelector,
+  adaptedOfferListSelector,
+  getFilteredOfferListSelector,
+  getAuthInfoSelector,
+  getCurrentOfferSelector,
+  getReviewsSelector,
+  getNeighborhoodsSelector,
+  getReviewFormStateSelector,
+  getFavoriteOfferListSelector
 };

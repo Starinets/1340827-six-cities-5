@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as Type from '../../types';
 
-import {getAuthorizationStatus, getReviewFormState} from '../../store/selectors';
+import {getAuthorizationStatusSelector, getReviewFormStateSelector} from '../../store/selectors';
 import {postComment} from '../../store/api-actions';
 import {setReviewFormState} from '../../store/action';
 import {AuthorizationStatus, ReviewFormState} from '../../constants';
@@ -95,8 +95,8 @@ const withReviewForm = (Component) => {
   }
 
   const mapStateToProps = (state) => ({
-    authorizationStatus: getAuthorizationStatus(state),
-    reviewFormState: getReviewFormState(state)
+    authorizationStatus: getAuthorizationStatusSelector(state),
+    reviewFormState: getReviewFormStateSelector(state)
   });
 
   const mapDispatchToProps = (dispatch) => ({

@@ -9,7 +9,7 @@ import FavoritesEmpty from '../favorites-empty/favorites-empty';
 
 import {fetchFavoriteList} from '../../store/api-actions';
 import {setCurrentCity} from '../../store/action';
-import {getFavoriteOfferList} from '../../store/selectors';
+import {getFavoriteOfferListSelector} from '../../store/selectors';
 import {AppRoute} from '../../constants';
 
 class Favorites extends React.PureComponent {
@@ -53,7 +53,7 @@ class Favorites extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  favoriteList: getFavoriteOfferList(state)
+  favoriteList: getFavoriteOfferListSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

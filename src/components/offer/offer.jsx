@@ -17,9 +17,9 @@ import Map from '../map/map';
 import FavoriteButton from '../favorite-button/favorite-button';
 
 import {
-  getCurrentOffer,
-  getReviews,
-  getNeighborhoods
+  getCurrentOfferSelector,
+  getReviewsSelector,
+  getNeighborhoodsSelector
 } from '../../store/selectors';
 import {getOfferDetails} from '../../store/api-actions';
 import {setHoveredOffer, updateCurrentOffer} from '../../store/action';
@@ -166,9 +166,9 @@ class Offer extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  offer: getCurrentOffer(state),
-  reviews: getReviews(state),
-  neighborhoods: getNeighborhoods(state)
+  offer: getCurrentOfferSelector(state),
+  reviews: getReviewsSelector(state),
+  neighborhoods: getNeighborhoodsSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

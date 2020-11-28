@@ -7,10 +7,10 @@ import {
   setCurrentSort
 } from '../../store/action';
 import {
-  getCurrentCity,
-  getCities,
-  getCurrentSort,
-  getFilteredOfferList
+  getCurrentCitySelector,
+  getCitiesSelector,
+  getCurrentSortSelector,
+  getFilteredOfferListSelector
 } from '../../store/selectors';
 
 import Header from '../header/header';
@@ -56,10 +56,10 @@ const Main = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  offers: getFilteredOfferList(state),
-  cityList: getCities(state),
-  currentCity: getCurrentCity(state),
-  currentSorting: getCurrentSort(state)
+  offers: getFilteredOfferListSelector(state),
+  cityList: getCitiesSelector(state),
+  currentCity: getCurrentCitySelector(state),
+  currentSorting: getCurrentSortSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
