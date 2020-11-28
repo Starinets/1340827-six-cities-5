@@ -165,6 +165,15 @@ class Offer extends React.PureComponent {
   }
 }
 
+Offer.propTypes = {
+  offer: Type.OFFER,
+  reviews: Type.REVIEWS,
+  neighborhoods: Type.OFFERS,
+  getCurrentOffer: Type.FUNCTION.isRequired,
+  removeActiveCard: Type.FUNCTION.isRequired,
+  match: Type.MATCH_OFFER_ID.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   offer: getCurrentOfferSelector(state),
   reviews: getReviewsSelector(state),
@@ -182,15 +191,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateCurrentOffer(null));
   }
 });
-
-Offer.propTypes = {
-  offer: Type.OFFER,
-  reviews: Type.REVIEWS,
-  neighborhoods: Type.OFFERS,
-  getCurrentOffer: Type.FUNCTION.isRequired,
-  removeActiveCard: Type.FUNCTION.isRequired,
-  match: Type.MATCH_OFFER_ID.isRequired,
-};
 
 export {Offer};
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);

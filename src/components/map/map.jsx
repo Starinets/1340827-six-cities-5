@@ -80,15 +80,15 @@ class Map extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  hoveredOffer: getHoveredOfferSelector(state)
-});
-
 Map.propTypes = {
   offers: Type.OFFERS.isRequired,
   mapPlace: Type.MAP_PLACE.isRequired,
   hoveredOffer: Type.OFFER
 };
+
+const mapStateToProps = (state) => ({
+  hoveredOffer: getHoveredOfferSelector(state)
+});
 
 export {Map};
 export default connect(mapStateToProps)(Map);

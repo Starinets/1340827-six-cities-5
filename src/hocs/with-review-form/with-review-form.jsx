@@ -94,6 +94,13 @@ const withReviewForm = (Component) => {
     }
   }
 
+  WithReviewForm.propTypes = {
+    id: Type.NUMBER.isRequired,
+    authorizationStatus: Type.STRING.isRequired,
+    reviewFormState: Type.STRING.isRequired,
+    onSubmit: Type.FUNCTION.isRequired,
+  };
+
   const mapStateToProps = (state) => ({
     authorizationStatus: getAuthorizationStatusSelector(state),
     reviewFormState: getReviewFormStateSelector(state)
@@ -105,13 +112,6 @@ const withReviewForm = (Component) => {
       dispatch(postComment({id, rating, review}));
     }
   });
-
-  WithReviewForm.propTypes = {
-    id: Type.NUMBER.isRequired,
-    authorizationStatus: Type.STRING.isRequired,
-    reviewFormState: Type.STRING.isRequired,
-    onSubmit: Type.FUNCTION.isRequired,
-  };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithReviewForm);
 };

@@ -55,6 +55,14 @@ const Main = (props) => {
   );
 };
 
+Main.propTypes = {
+  offers: Type.OFFERS.isRequired,
+  currentCity: Type.CITY.isRequired,
+  onCityClick: Type.FUNCTION.isRequired,
+  currentSorting: Type.SORTING.isRequired,
+  onSortingClick: Type.FUNCTION.isRequired
+};
+
 const mapStateToProps = (state) => ({
   offers: getFilteredOfferListSelector(state),
   cityList: getCitiesSelector(state),
@@ -70,14 +78,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setCurrentSort(newSorting));
   }
 });
-
-Main.propTypes = {
-  offers: Type.OFFERS.isRequired,
-  currentCity: Type.CITY.isRequired,
-  onCityClick: Type.FUNCTION.isRequired,
-  currentSorting: Type.SORTING.isRequired,
-  onSortingClick: Type.FUNCTION.isRequired
-};
 
 export {Main};
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

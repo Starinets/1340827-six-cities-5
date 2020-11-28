@@ -63,6 +63,17 @@ class FavoriteButton extends React.PureComponent {
   }
 }
 
+FavoriteButton.propTypes = {
+  isFavorite: Type.BOOLEAN.isRequired,
+  className: Type.STRING.isRequired,
+  buttonWidth: Type.NUMBER.isRequired,
+  buttonHeight: Type.NUMBER.isRequired,
+  authorizationStatus: Type.STRING.isRequired,
+  id: Type.NUMBER.isRequired,
+  redirectToLoginPage: Type.FUNCTION.isRequired,
+  changeOfferStatus: Type.FUNCTION.isRequired
+};
+
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatusSelector(state)
 });
@@ -75,17 +86,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setOfferStatus(id, status));
   }
 });
-
-FavoriteButton.propTypes = {
-  isFavorite: Type.BOOLEAN.isRequired,
-  className: Type.STRING.isRequired,
-  buttonWidth: Type.NUMBER.isRequired,
-  buttonHeight: Type.NUMBER.isRequired,
-  authorizationStatus: Type.STRING.isRequired,
-  id: Type.NUMBER.isRequired,
-  redirectToLoginPage: Type.FUNCTION.isRequired,
-  changeOfferStatus: Type.FUNCTION.isRequired
-};
 
 export {FavoriteButton};
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteButton);
