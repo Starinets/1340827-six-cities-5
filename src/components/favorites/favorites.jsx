@@ -28,13 +28,12 @@ class Favorites extends React.PureComponent {
       favoriteList,
       onCityClick
     } = this.props;
-
     return (
       <div className="page">
         <Header/>
         <main className="page__main page__main--favorites">
           <div className="page__favorites-container container">
-            { !favoriteList.length
+            { favoriteList.length <= 0
               ? <FavoritesEmpty/>
               : <FavoriteList
                 favoriteList={ favoriteList }
@@ -72,4 +71,5 @@ Favorites.propTypes = {
   onCityClick: Type.FUNCTION.isRequired
 };
 
+export {Favorites};
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
