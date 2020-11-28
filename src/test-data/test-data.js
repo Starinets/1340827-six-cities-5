@@ -48,6 +48,12 @@ export const MapPlace = {
   OFFER: `property`
 };
 
+export const matchOfferID = {
+  params: {
+    id: `1`
+  }
+};
+
 export const Offers = [
   {
     "city": {
@@ -283,3 +289,42 @@ export const Offers = [
 ];
 
 export const offer = Offers[0];
+
+export const reviews = [
+  {
+    "id": 1,
+    "user": {
+      "id": 14,
+      "isPro": true,
+      "name": `Corey`,
+      "avatar": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/5.jpg`
+    },
+    "rating": 5,
+    "text": `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
+    "date": `2020-11-01T13:38:44.752Z`
+  },
+  {
+    "id": 2,
+    "user": {
+      "id": 12,
+      "isPro": true,
+      "name": `Isaac`,
+      "avatar": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/3.jpg`
+    },
+    "rating": 3,
+    "text": `The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.`,
+    "date": `2020-11-01T13:38:44.752Z`
+  },
+  {
+    "id": 3,
+    "user": {
+      "id": 15,
+      "isPro": false,
+      "name": `Kendall`,
+      "avatar": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg`
+    },
+    "rating": 3,
+    "text": `I stayed here for one night and it was an unpleasant experience.`,
+    "date": `2020-11-01T13:38:44.752Z`
+  }
+];

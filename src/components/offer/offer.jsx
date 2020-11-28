@@ -192,4 +192,5 @@ Offer.propTypes = {
   match: Type.MATCH_OFFER_ID.isRequired,
 };
 
+export {Offer};
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);
