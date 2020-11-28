@@ -27,6 +27,15 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+export const authInfo = {
+  AuthorizedUser: {
+    email: `mail@domain.com`
+  },
+  UnauthorizedUser: {
+    email: null
+  }
+};
+
 export const Offers = [
   {
     "city": {
