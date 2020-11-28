@@ -32,8 +32,13 @@ exports[`HOC rendered correctly -> withReviewForm 1`] = `
     }
   }
 >
-  <Memo(Connect(WithReviewForm))>
-    <React.Fragment />
-  </Memo(Connect(WithReviewForm))>
+  <Memo(Connect(WithReviewForm))
+    isFormDisabled={false}
+    onRatingChange={[Function]}
+    onSubmit={[Function]}
+    onTextAreaChange={[Function]}
+    rating={5}
+    review="some comment from user"
+  />
 </Context.Provider>
 `;
