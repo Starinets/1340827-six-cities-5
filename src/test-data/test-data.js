@@ -357,3 +357,5 @@ export const reviews = [
     "date": `2020-11-01T13:38:44.752Z`
   }
 ];
+
+export const review = reviews[0];
