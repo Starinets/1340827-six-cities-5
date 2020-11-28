@@ -43,6 +43,11 @@ export const SortList = {
   TOP_RATED_FIRST: `Top rated first`
 };
 
+export const MapPlace = {
+  CITIES: `cities`,
+  OFFER: `property`
+};
+
 export const Offers = [
   {
     "city": {
@@ -276,3 +281,5 @@ export const Offers = [
     "id": 4
   }
 ];
+
+export const offer = Offers[0];

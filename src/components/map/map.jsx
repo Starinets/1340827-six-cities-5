@@ -90,4 +90,5 @@ Map.propTypes = {
   hoveredOffer: Type.OFFER
 };
 
+export {Map};
 export default connect(mapStateToProps)(Map);
