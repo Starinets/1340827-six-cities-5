@@ -10,7 +10,7 @@ const withOfferList = (Component) => {
         { ...props }
       />
     );
-  }
+  };
 
   const mapDispatchToProps = (dispatch) => ({
     changeHoveredOffer(hoveredOffer) {
