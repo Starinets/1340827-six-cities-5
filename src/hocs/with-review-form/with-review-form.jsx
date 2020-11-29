@@ -23,11 +23,11 @@ const withReviewForm = (Component) => {
 
     const handleRatingChange = useCallback((evt) => {
       setRating(parseInt(evt.target.value, 10));
-    });
+    }, []);
 
     const handleTextareaChange = useCallback((evt) => {
       setReview(evt.target.value);
-    });
+    }, []);
 
     const handleFormSubmit = useCallback((evt) => {
       evt.preventDefault();
@@ -52,7 +52,7 @@ const withReviewForm = (Component) => {
         case ReviewFormState.POSTING_COMMENT:
           setIsFormDisabled(() => true);
       }
-    });
+    }, []);
 
     if (authorizationStatus !== AuthorizationStatus.AUTH) {
       return null;
