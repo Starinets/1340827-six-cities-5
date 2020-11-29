@@ -12,8 +12,13 @@ import {
 
 const FavoriteItems = (props) => {
 
-  const {city, favorites} = props.favoritesByCity;
-  const {onCityClick} = props;
+  const {
+    favoritesByCity: {
+      city,
+      favorites
+    },
+    onCityClick
+  } = props;
 
   return (
     <li className="favorites__locations-items">
@@ -36,7 +41,6 @@ const FavoriteItems = (props) => {
               offer = { favoriteItem }
               offerPlace = { OfferPlace.FAVORITES }
               imageSize = { OfferCardImage.Favorite }
-              onMouseOver = { () => {} }
             />
           ))
         }

@@ -1,65 +1,56 @@
-import React from "react";
-import {connect} from "react-redux";
-import * as Type from "../../types";
+import React, {useState, useCallback} from 'react';
+import {connect} from 'react-redux';
+import * as Type from '../../types';
 
 import {setCurrentCity} from '../../store/action';
-import {login} from "../../store/api-actions";
+import {login} from '../../store/api-actions';
 
 const withLogin = (Component) => {
-  class WithLogin extends React.PureComponent {
-    constructor(props) {
-      super(props);
+  const WithLogin = (props) => {
 
-      this.state = {
-        email: ``,
-        password: ``
-      };
+    const [email, setEmail] = useState(``);
+    const [password, setPassword] = useState(``);
 
-      this.handleFormSubmit = this.handleFormSubmit.bind(this);
-      this.handleEmailChange = this.handleEmailChange.bind(this);
-      this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    }
+    const {onItemClick} = props;
 
-    handleEmailChange(evt) {
-      this.setState({email: evt.target.value});
-    }
+    const handleEmailChange = useCallback((evt) => {
+      setEmail(evt.target.value);
+    });
 
-    handlePasswordChange(evt) {
-      this.setState({password: evt.target.value});
-    }
+    const handlePasswordChange = useCallback((evt) => {
+      setPassword(evt.target.value);
+    });
 
-    handleFormSubmit(evt) {
-      const {onFormSubmit} = this.props;
-      const {email, password} = this.state;
+    const handleFormSubmit = useCallback((evt) => {
+      const {onFormSubmit} = props;
+
       evt.preventDefault();
 
       onFormSubmit({login: email, password});
-    }
+    });
 
-    render() {
-      return (
-        <Component
-          email={ this.state.email }
-          password={ this.state.password }
-          onEmailChange={ this.handleEmailChange }
-          onPasswordChange={ this.handlePasswordChange }
-          onFormSubmit={ this.handleFormSubmit }
-          onCityClick={ this.props.onCityClick }
-        />
-      );
-    }
-  }
+    return (
+      <Component
+        email={ email }
+        password={ password }
+        onEmailChange={ handleEmailChange }
+        onPasswordChange={ handlePasswordChange }
+        onFormSubmit={ handleFormSubmit }
+        onCityClick={ onItemClick }
+      />
+    );
+  };
 
   WithLogin.propTypes = {
     onFormSubmit: Type.FUNCTION.isRequired,
-    onCityClick: Type.FUNCTION.isRequired
+    onItemClick: Type.FUNCTION.isRequired
   };
 
   const mapDispatchToProps = (dispatch) => ({
     onFormSubmit(authData) {
       dispatch(login(authData));
     },
-    onCityClick(city) {
+    onItemClick(city) {
       dispatch(setCurrentCity(city));
     }
   });

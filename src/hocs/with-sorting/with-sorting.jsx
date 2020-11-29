@@ -1,41 +1,35 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
+import * as Type from '../../types';
 
 const withSorting = (Component) => {
+  const WithSorting = (props) => {
 
-  class WithSorting extends React.PureComponent {
+    const {onSortingClick} = props;
+    const [isOpen, setIsOpen] = useState(false);
 
-    constructor(props) {
-      super(props);
+    const handleListNameClick = useCallback(() => {
+      setIsOpen((prevIsOpen) => !prevIsOpen);
+    });
 
-      this.state = {
-        isOpen: false,
-      };
+    const handleListItemClick = useCallback((filterItem) => {
+      onSortingClick(filterItem);
+      setIsOpen(() => false);
+    });
 
-      this.handleListNameClick = this.handleListNameClick.bind(this);
-      this.handleListItemClick = this.handleListItemClick.bind(this);
-    }
+    return (
+      <Component
+        { ...props }
+        isOpen={ isOpen }
+        onListItemClick={ handleListItemClick }
+        onListNameClick={ handleListNameClick }
+      />
+    );
+  };
 
-    handleListNameClick() {
-      this.setState(() => ({isOpen: !this.state.isOpen}));
-    }
+  WithSorting.propTypes = {
+    onSortingClick: Type.FUNCTION.isRequired
+  };
 
-    handleListItemClick(onSortingClick, sorting) {
-      onSortingClick(sorting);
-      this.setState(() => ({isOpen: false}));
-    }
-
-    render() {
-      const {isOpen} = this.state;
-      return (
-        <Component
-          {...this.props}
-          isOpen={isOpen}
-          onListItemClick={this.handleListItemClick}
-          onListNameClick={this.handleListNameClick}
-        />
-      );
-    }
-  }
   return WithSorting;
 };
 

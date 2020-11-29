@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import * as Type from '../../types';
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 import {
   City,

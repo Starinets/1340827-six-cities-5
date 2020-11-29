@@ -11,13 +11,13 @@ import {
   updateNeighborhoods,
   updateCurrentOffer,
   setReviewFormState
-} from "./action";
+} from './action';
 import {
   AuthorizationStatus,
   APIRoute,
   AppRoute,
   ReviewFormState
-} from "../constants";
+} from '../constants';
 
 const fetchOfferList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.HOTELS)
@@ -34,12 +34,16 @@ const getOfferDetails = (id) => (dispatch, _getState, api) => (
     api.get(`${APIRoute.HOTELS}/${id}`),
     api.get(`${APIRoute.COMMENTS}/${id}`),
     api.get(`${APIRoute.HOTELS}/${id}${APIRoute.NEARBY}`)
-  ]).then((details) => {
+  ])
+  .then((details) => {
     dispatch(loadOfferDetails({
       offer: details[0].data,
       reviews: details[1].data,
       neighborhoods: details[2].data
     }));
+  })
+  .catch(() => {
+    dispatch(redirectToRoute(AppRoute.ROOT));
   })
 );
 

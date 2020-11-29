@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import Login from './login';
 
-import {emptyFunction} from "../../test-data/test-data";
+import {emptyFunction} from '../../test-data/test-data';
 
 configure({adapter: new Adapter()});
 

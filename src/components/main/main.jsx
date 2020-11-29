@@ -7,10 +7,10 @@ import {
   setCurrentSort
 } from '../../store/action';
 import {
-  getCurrentCity,
-  getCities,
-  getCurrentSort,
-  getFilteredOfferList
+  getCurrentCitySelector,
+  getCitiesSelector,
+  getCurrentSortSelector,
+  getFilteredOfferListSelector
 } from '../../store/selectors';
 
 import Header from '../header/header';
@@ -55,11 +55,19 @@ const Main = (props) => {
   );
 };
 
+Main.propTypes = {
+  offers: Type.OFFERS.isRequired,
+  currentCity: Type.CITY.isRequired,
+  onCityClick: Type.FUNCTION.isRequired,
+  currentSorting: Type.SORTING.isRequired,
+  onSortingClick: Type.FUNCTION.isRequired
+};
+
 const mapStateToProps = (state) => ({
-  offers: getFilteredOfferList(state),
-  cityList: getCities(state),
-  currentCity: getCurrentCity(state),
-  currentSorting: getCurrentSort(state)
+  offers: getFilteredOfferListSelector(state),
+  cityList: getCitiesSelector(state),
+  currentCity: getCurrentCitySelector(state),
+  currentSorting: getCurrentSortSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -70,14 +78,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setCurrentSort(newSorting));
   }
 });
-
-Main.propTypes = {
-  offers: Type.OFFERS.isRequired,
-  currentCity: Type.CITY.isRequired,
-  onCityClick: Type.FUNCTION.isRequired,
-  currentSorting: Type.SORTING.isRequired,
-  onSortingClick: Type.FUNCTION.isRequired
-};
 
 export {Main};
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

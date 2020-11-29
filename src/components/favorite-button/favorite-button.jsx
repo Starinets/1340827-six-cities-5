@@ -3,7 +3,7 @@ import * as Type from '../../types';
 import {connect} from 'react-redux';
 
 import {redirectToRoute} from '../../store/action';
-import {getAuthorizationStatus} from '../../store/selectors';
+import {getAuthorizationStatusSelector} from '../../store/selectors';
 import {setOfferStatus} from '../../store/api-actions';
 import {
   AuthorizationStatus,
@@ -63,19 +63,6 @@ class FavoriteButton extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state)
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  redirectToLoginPage() {
-    dispatch(redirectToRoute(APIRoute.LOGIN));
-  },
-  changeOfferStatus(id, status) {
-    dispatch(setOfferStatus(id, status));
-  }
-});
-
 FavoriteButton.propTypes = {
   isFavorite: Type.BOOLEAN.isRequired,
   className: Type.STRING.isRequired,
@@ -86,6 +73,19 @@ FavoriteButton.propTypes = {
   redirectToLoginPage: Type.FUNCTION.isRequired,
   changeOfferStatus: Type.FUNCTION.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthorizationStatusSelector(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  redirectToLoginPage() {
+    dispatch(redirectToRoute(APIRoute.LOGIN));
+  },
+  changeOfferStatus(id, status) {
+    dispatch(setOfferStatus(id, status));
+  }
+});
 
 export {FavoriteButton};
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteButton);

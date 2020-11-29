@@ -13,6 +13,12 @@ import {
 const OfferCard = (props) => {
 
   const {
+    offer,
+    offerPlace,
+    imageSize,
+    onMouseOver
+  } = props;
+  const {
     id,
     image,
     price,
@@ -20,22 +26,29 @@ const OfferCard = (props) => {
     rating,
     name,
     type
-  } = props.offer;
+  } = offer;
 
   const width = transformRatingToWidth(rating);
 
+  let callback = () => {};
+  if (onMouseOver !== undefined) {
+    callback = (param) => {
+      onMouseOver(param);
+    };
+  }
+
   return (
     <article
-      className={ `${ props.offerPlace }card place-card` }
-      onMouseOver={ () => props.onMouseOver(props.offer) }
-      onMouseOut={ () => props.onMouseOver(null) }
-      onClick={ () => props.onMouseOver(null) }
+      className={ `${ offerPlace }card place-card` }
+      onMouseOver={ () => callback(offer) }
+      onMouseOut={ () => callback(null) }
+      onClick={ () => callback(null) }
     >
-      <div className={`${ props.offerPlace }image-wrapper place-card__image-wrapper`}>
+      <div className={`${ offerPlace }image-wrapper place-card__image-wrapper`}>
         <NavLink
           to={ `${ AppRoute.OFFER }/${ id }` }
         >
-          <img className="place-card__image" src={ image } width={ props.imageSize.WIDTH } height={ props.imageSize.HEIGHT } alt="Place image" />
+          <img className="place-card__image" src={ image } width={ imageSize.WIDTH } height={ imageSize.HEIGHT } alt="Place image" />
         </NavLink>
       </div>
       <div className="place-card__info">
@@ -75,7 +88,7 @@ OfferCard.propTypes = {
   offer: Type.OFFER.isRequired,
   offerPlace: Type.OFFER_PLACE.isRequired,
   imageSize: Type.IMAGE_SIZE,
-  onMouseOver: Type.FUNCTION.isRequired
+  onMouseOver: Type.FUNCTION
 };
 
 export default OfferCard;

@@ -11,25 +11,31 @@ import {
 
 const OfferList = (props) => {
 
-  const className = props.offerPlace === OfferPlace.CITIES
+  const {
+    offers,
+    offerPlace,
+    changeHoveredOffer
+  } = props;
+
+  const className = offerPlace === OfferPlace.CITIES
     ? OfferListClassName.CITIES
     : OfferListClassName.NEIGHBORHOOD;
 
-  const offers = props.offers.map((offer) => {
+  const offersList = offers.map((offer) => {
     return (
       <OfferCard
         key = { offer.id }
         offer = { offer }
-        offerPlace = { props.offerPlace }
+        offerPlace = { offerPlace }
         imageSize = { OfferCardImage.List }
-        onMouseOver = { props.changeHoveredOffer }
+        onMouseOver = { changeHoveredOffer }
       />
     );
   });
 
   return (
     <div className={ className }>
-      { offers }
+      { offersList }
     </div>
   );
 };

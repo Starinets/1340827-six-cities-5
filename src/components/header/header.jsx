@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import * as Type from '../../types';
 
-import {getAuthInfo} from '../../store/selectors';
+import {getAuthInfoSelector} from '../../store/selectors';
 import {AppRoute} from '../../constants';
 
 const Header = ({authInfo}) => {
@@ -50,7 +50,7 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  authInfo: getAuthInfo(state)
+  authInfo: getAuthInfoSelector(state)
 });
 
 export {Header};

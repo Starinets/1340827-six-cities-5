@@ -1,102 +1,86 @@
-import React from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {connect} from 'react-redux';
 import * as Type from '../../types';
 
-import {getAuthorizationStatus, getReviewFormState} from '../../store/selectors';
+import {getAuthorizationStatusSelector, getReviewFormStateSelector} from '../../store/selectors';
 import {postComment} from '../../store/api-actions';
 import {setReviewFormState} from '../../store/action';
 import {AuthorizationStatus, ReviewFormState} from '../../constants';
 
 const withReviewForm = (Component) => {
+  const WithReviewForm = (props) => {
 
-  class WithReviewForm extends React.PureComponent {
+    const [review, setReview] = useState(``);
+    const [rating, setRating] = useState(0);
+    const [isFormDisabled, setIsFormDisabled] = useState(false);
 
-    constructor() {
-      super();
+    const {
+      authorizationStatus,
+      reviewFormState
+    } = props;
 
-      this.state = {
-        rating: 0,
-        review: ``,
-        isFormDisabled: false
-      };
+    useEffect(() => setFormState(reviewFormState), [reviewFormState]);
 
-      this.handleRatingChange = this.handleRatingChange.bind(this);
-      this.handleTextareaChange = this.handleTextareaChange.bind(this);
-      this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    }
+    const handleRatingChange = useCallback((evt) => {
+      setRating(parseInt(evt.target.value, 10));
+    });
 
-    componentDidUpdate() {
-      const {reviewFormState} = this.props;
-      this.setFormState(reviewFormState);
-    }
+    const handleTextareaChange = useCallback((evt) => {
+      setReview(evt.target.value);
+    });
 
-    handleRatingChange(evt) {
-      evt.persist();
-      this.setState(() => ({rating: parseInt(evt.target.value, 10)}));
-    }
-
-    handleTextareaChange(evt) {
-      evt.persist();
-      this.setState(() => ({review: evt.target.value}));
-    }
-
-    handleFormSubmit(evt) {
+    const handleFormSubmit = useCallback((evt) => {
       evt.preventDefault();
 
-      const {rating, review} = this.state;
-      const {id, onSubmit, reviewFormState} = this.props;
-
+      const {id, onSubmit} = props;
       onSubmit(id, rating, review);
-      this.setFormState(reviewFormState);
-    }
+      setFormState(reviewFormState);
+    });
 
-    setFormState(reviewFormState) {
-      switch (reviewFormState) {
+    const setFormState = useCallback((evt) => {
+      switch (evt) {
         case ReviewFormState.SENDING_ERROR:
-          this.setState(() => ({
-            isFormDisabled: false
-          })
-          );
+          setIsFormDisabled(() => false);
           return;
+
         case ReviewFormState.DEFAULT:
-          this.setState(() => ({
-            rating: 0,
-            review: ``,
-            isFormDisabled: false
-          })
-          );
+          setRating(0);
+          setReview(``);
+          setIsFormDisabled(() => false);
           return;
+
         case ReviewFormState.POSTING_COMMENT:
-          this.setState(() => ({
-            isFormDisabled: true
-          })
-          );
+          setIsFormDisabled(() => true);
       }
+    });
+
+    if (authorizationStatus !== AuthorizationStatus.AUTH) {
+      return null;
     }
 
-    render() {
-      const {rating, review, isFormDisabled} = this.state;
+    return (
+      <Component
+        rating = { rating }
+        review = { review }
+        isFormDisabled = { isFormDisabled }
+        authorizationStatus={authorizationStatus}
+        onRatingChange = { handleRatingChange }
+        onTextAreaChange = { handleTextareaChange }
+        onSubmit = { handleFormSubmit }
+      />
+    );
+  };
 
-      if (this.props.authorizationStatus !== AuthorizationStatus.AUTH) {
-        return null;
-      }
-
-      return (
-        <Component
-          rating = { rating }
-          review = { review }
-          isFormDisabled = { isFormDisabled }
-          onRatingChange = { this.handleRatingChange }
-          onTextAreaChange = { this.handleTextareaChange }
-          onSubmit = { this.handleFormSubmit }
-        />
-      );
-    }
-  }
+  WithReviewForm.propTypes = {
+    id: Type.NUMBER.isRequired,
+    authorizationStatus: Type.STRING.isRequired,
+    reviewFormState: Type.STRING.isRequired,
+    onSubmit: Type.FUNCTION.isRequired,
+  };
 
   const mapStateToProps = (state) => ({
-    authorizationStatus: getAuthorizationStatus(state),
-    reviewFormState: getReviewFormState(state)
+    authorizationStatus: getAuthorizationStatusSelector(state),
+    reviewFormState: getReviewFormStateSelector(state)
   });
 
   const mapDispatchToProps = (dispatch) => ({
@@ -105,13 +89,6 @@ const withReviewForm = (Component) => {
       dispatch(postComment({id, rating, review}));
     }
   });
-
-  WithReviewForm.propTypes = {
-    id: Type.NUMBER.isRequired,
-    authorizationStatus: Type.STRING.isRequired,
-    reviewFormState: Type.STRING.isRequired,
-    onSubmit: Type.FUNCTION.isRequired,
-  };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithReviewForm);
 };

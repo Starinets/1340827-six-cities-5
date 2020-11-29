@@ -17,9 +17,9 @@ import Map from '../map/map';
 import FavoriteButton from '../favorite-button/favorite-button';
 
 import {
-  getCurrentOffer,
-  getReviews,
-  getNeighborhoods
+  getCurrentOfferSelector,
+  getReviewsSelector,
+  getNeighborhoodsSelector
 } from '../../store/selectors';
 import {getOfferDetails} from '../../store/api-actions';
 import {setHoveredOffer, updateCurrentOffer} from '../../store/action';
@@ -56,6 +56,7 @@ class Offer extends React.PureComponent {
   }
 
   render() {
+
     const SINGULAR_MEANING = 1;
     const {
       offer,
@@ -165,10 +166,19 @@ class Offer extends React.PureComponent {
   }
 }
 
+Offer.propTypes = {
+  offer: Type.OFFER,
+  reviews: Type.REVIEWS,
+  neighborhoods: Type.OFFERS,
+  getCurrentOffer: Type.FUNCTION.isRequired,
+  removeActiveCard: Type.FUNCTION.isRequired,
+  match: Type.MATCH_OFFER_ID.isRequired,
+};
+
 const mapStateToProps = (state) => ({
-  offer: getCurrentOffer(state),
-  reviews: getReviews(state),
-  neighborhoods: getNeighborhoods(state)
+  offer: getCurrentOfferSelector(state),
+  reviews: getReviewsSelector(state),
+  neighborhoods: getNeighborhoodsSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -182,15 +192,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateCurrentOffer(null));
   }
 });
-
-Offer.propTypes = {
-  offer: Type.OFFER,
-  reviews: Type.REVIEWS,
-  neighborhoods: Type.OFFERS,
-  getCurrentOffer: Type.FUNCTION.isRequired,
-  removeActiveCard: Type.FUNCTION.isRequired,
-  match: Type.MATCH_OFFER_ID.isRequired,
-};
 
 export {Offer};
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);
