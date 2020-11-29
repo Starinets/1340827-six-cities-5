@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as Type from '../../types';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
@@ -12,45 +12,39 @@ import {setCurrentCity} from '../../store/action';
 import {getFavoriteOfferListSelector} from '../../store/selectors';
 import {AppRoute} from '../../constants';
 
-class Favorites extends React.PureComponent {
+const Favorites = (props) => {
 
-  constructor(props) {
-    super(props);
-  }
+  const {
+    favoriteList,
+    onCityClick
+  } = props;
 
-  componentDidMount() {
-    this.props.getFavoriteList();
-  }
+  useEffect(() => {
+    props.getFavoriteList();
+  }, []);
 
-  render() {
-
-    const {
-      favoriteList,
-      onCityClick
-    } = this.props;
-    return (
-      <div className="page">
-        <Header/>
-        <main className="page__main page__main--favorites">
-          <div className="page__favorites-container container">
-            { favoriteList.length <= 0
-              ? <FavoritesEmpty/>
-              : <FavoriteList
-                favoriteList={ favoriteList }
-                onCityClick={ onCityClick }
-              />
-            }
-          </div>
-        </main>
-        <footer className="footer container">
-          <NavLink className="footer__logo-link" to={AppRoute.ROOT}>
-            <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"/>
-          </NavLink>
-        </footer>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="page">
+      <Header/>
+      <main className="page__main page__main--favorites">
+        <div className="page__favorites-container container">
+          { favoriteList.length <= 0
+            ? <FavoritesEmpty/>
+            : <FavoriteList
+              favoriteList={ favoriteList }
+              onCityClick={ onCityClick }
+            />
+          }
+        </div>
+      </main>
+      <footer className="footer container">
+        <NavLink className="footer__logo-link" to={AppRoute.ROOT}>
+          <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"/>
+        </NavLink>
+      </footer>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   favoriteList: getFavoriteOfferListSelector(state)
