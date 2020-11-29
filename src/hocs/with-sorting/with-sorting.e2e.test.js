@@ -1,9 +1,9 @@
-import React from "react";
-import {configure, shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import {Provider} from "react-redux";
+import React from 'react';
+import {configure, shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import {Provider} from 'react-redux';
 
-import withSorting from "./with-sorting";
+import withSorting from './with-sorting';
 
 import {mockStore} from '../../test-data/test-store';
 import {

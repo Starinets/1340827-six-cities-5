@@ -11,13 +11,13 @@ import {
   updateNeighborhoods,
   updateCurrentOffer,
   setReviewFormState
-} from "./action";
+} from './action';
 import {
   AuthorizationStatus,
   APIRoute,
   AppRoute,
   ReviewFormState
-} from "../constants";
+} from '../constants';
 
 const fetchOfferList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.HOTELS)
