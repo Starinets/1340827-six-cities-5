@@ -3,16 +3,13 @@ import {connect} from 'react-redux';
 import {setHoveredOffer} from '../../store/action';
 
 const withOfferList = (Component) => {
+  const WithOfferList = (props) => {
 
-  class WithOfferList extends React.PureComponent {
-
-    render() {
-      return (
-        <Component
-          {...this.props}
-        />
-      );
-    }
+    return (
+      <Component
+        { ...props }
+      />
+    );
   }
 
   const mapDispatchToProps = (dispatch) => ({
