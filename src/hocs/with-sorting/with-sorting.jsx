@@ -9,12 +9,12 @@ const withSorting = (Component) => {
 
     const handleListNameClick = useCallback(() => {
       setIsOpen((prevIsOpen) => !prevIsOpen);
-    });
+    }, []);
 
     const handleListItemClick = useCallback((filterItem) => {
       onSortingClick(filterItem);
       setIsOpen(() => false);
-    });
+    }, []);
 
     return (
       <Component

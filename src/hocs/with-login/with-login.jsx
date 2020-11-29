@@ -15,11 +15,11 @@ const withLogin = (Component) => {
 
     const handleEmailChange = useCallback((evt) => {
       setEmail(evt.target.value);
-    });
+    }, []);
 
     const handlePasswordChange = useCallback((evt) => {
       setPassword(evt.target.value);
-    });
+    }, []);
 
     const handleFormSubmit = useCallback((evt) => {
       const {onFormSubmit} = props;
