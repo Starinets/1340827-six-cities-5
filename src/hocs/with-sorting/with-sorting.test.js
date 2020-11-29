@@ -2,7 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import withSorting from './with-sorting';
 import {
-  emptyFunction
+  emptyFunction,
+  SortList
 } from '../../test-data/test-data';
 
 const MockComponent = () => {
@@ -16,7 +17,9 @@ const MockComponentWrapped = withSorting(MockComponent);
 it(`HOC rendered correctly -> withSorting`, () => {
   const tree = renderer.create(
       <MockComponentWrapped
+        currentSorting={ SortList.POPULAR }
         isOpen={ true }
+        onSortingClick={ emptyFunction }
         onListItemClick={ emptyFunction }
         onListNameClick={ emptyFunction }
       />
