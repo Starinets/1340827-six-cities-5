@@ -7,7 +7,6 @@ const Sorting = (props) => {
 
   const {
     currentSorting,
-    onSortingClick,
     isOpen,
     onListItemClick,
     onListNameClick
@@ -39,7 +38,7 @@ const Sorting = (props) => {
                 key={sorting}
                 className={`places__option ${currentSorting === sorting ? `places__option--active` : ``}`}
                 tabIndex="0"
-                onClick={() => onListItemClick(onSortingClick, sorting)}
+                onClick={() => onListItemClick(sorting)}
               >
                 {sorting}
               </li>
@@ -53,7 +52,6 @@ const Sorting = (props) => {
 
 Sorting.propTypes = {
   currentSorting: Type.SORTING.isRequired,
-  onSortingClick: Type.FUNCTION.isRequired,
   isOpen: Type.BOOLEAN.isRequired,
   onListItemClick: Type.FUNCTION.isRequired,
   onListNameClick: Type.FUNCTION.isRequired,
