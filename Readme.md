@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
-* Студент: [Евгений Старинец](https://up.htmlacademy.ru/react/5/user/1340827).
-* Наставник: [Богдан Волик](https://htmlacademy.ru/profile/id997699).
+* Студент: [Евгений Старинец](https://up.htmlacademy.ru/react/5/user/1340827)
+* Наставник: [Богдан Волик](https://htmlacademy.ru/profile/id997699)
 
 ---
 
